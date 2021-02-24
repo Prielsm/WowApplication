@@ -83,3 +83,15 @@ C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\ob
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\obj\Debug\WowApplication.csproj.CopyComplete
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\obj\Debug\WowApplication.dll
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\obj\Debug\WowApplication.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\x64\libsass.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\AdvancedStringBuilder.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\BundleTransformer.Core.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\BundleTransformer.SassAndScss.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\LibSassHost.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\System.Buffers.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\AdvancedStringBuilder.xml
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\BundleTransformer.Core.xml
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\BundleTransformer.SassAndScss.xml
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\LibSassHost.xml
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\ru-ru\BundleTransformer.Core.resources.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\x86\libsass.dll

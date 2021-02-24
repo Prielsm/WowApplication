@@ -12,23 +12,10 @@ namespace WowApplication
         // Pour plus d'informations sur le regroupement, visitez https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
-
-            // Utilisez la version de développement de Modernizr pour le développement et l'apprentissage. Puis, une fois
-            // prêt pour la production, utilisez l'outil de génération à l'adresse https://modernizr.com pour sélectionner uniquement les tests dont vous avez besoin.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/script").Include
+                (
+                 "~/Js/script.js"
+                ));
 
             var nullBulider = new NullBuilder();
             var nullOrderer = new NullOrderer();
@@ -37,7 +24,9 @@ namespace WowApplication
             var commonStyleBundle = new CustomStyleBundle("~/Bundle/sass");
 
 
-            commonStyleBundle.Include("~/css/main.scss");
+            commonStyleBundle.Include("~/Scss/styles.scss");
+            commonStyleBundle.Include("~/Scss/loot.scss");
+            commonStyleBundle.Include("~/Scss/donjons.scss");
             //... Ajouter d'autres scss
             commonStyleBundle.Orderer = nullOrderer;
             bundles.Add(commonStyleBundle);

@@ -11,7 +11,7 @@ using WowApplication.API.Models.SharedModelsAPI;
 
 namespace WowApplication.API.Functions
 {
-    class InstanceRepoAPI
+    public class InstanceRepoAPI
     {
         public const string baseURL = "https://eu.api.blizzard.com/";
         private static readonly HttpClient httpClient = new HttpClient();
