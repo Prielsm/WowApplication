@@ -21,15 +21,21 @@ namespace WowApplication
             var nullOrderer = new NullOrderer();
 
             BundleResolver.Current = new CustomBundleResolver();
-            var commonStyleBundle = new CustomStyleBundle("~/Bundle/sass");
-
-
+            var commonStyleBundle = new CustomStyleBundle("~/Bundle/cssBase");
             commonStyleBundle.Include("~/Scss/styles.scss");
-            commonStyleBundle.Include("~/Scss/loot.scss");
-            commonStyleBundle.Include("~/Scss/donjons.scss");
             //... Ajouter d'autres scss
             commonStyleBundle.Orderer = nullOrderer;
             bundles.Add(commonStyleBundle);
+
+            var donjonsStyleBundle = new CustomStyleBundle("~/Bundle/cssDonjons");
+            donjonsStyleBundle.Include("~/Scss/donjons.scss");
+            donjonsStyleBundle.Orderer = nullOrderer;
+            bundles.Add(donjonsStyleBundle);
+
+            var lootStyleBundle = new CustomStyleBundle("~/Bundle/cssLoot");
+            lootStyleBundle.Include("~/Scss/loot.scss");
+            lootStyleBundle.Orderer = nullOrderer;
+            bundles.Add(lootStyleBundle);
         }
     }
 }

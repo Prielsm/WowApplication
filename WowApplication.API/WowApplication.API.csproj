@@ -49,9 +49,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Functions\AuthentificationRepoAPI.cs" />
+    <Compile Include="Functions\EncounterRepoAPI.cs" />
     <Compile Include="Functions\InstanceRepoAPI.cs" />
+    <Compile Include="Functions\ItemRepoAPI.cs" />
     <Compile Include="Models\AuthentificationModelsAPI\AccessTokenResponse.cs" />
     <Compile Include="Models\AuthentificationModelsAPI\AuctionClasses.cs" />
+    <Compile Include="Models\CreatureModelsAPI\DataCreature.cs" />
+    <Compile Include="Models\CreatureModelsAPI\ResultCreature.cs" />
+    <Compile Include="Models\CreatureModelsAPI\RootCreature.cs" />
+    <Compile Include="Models\EncounterModelsAPI\Creature.cs" />
+    <Compile Include="Models\EncounterModelsAPI\DataEncounter.cs" />
+    <Compile Include="Models\EncounterModelsAPI\Faction.cs" />
+    <Compile Include="Models\EncounterModelsAPI\InstanceName.cs" />
+    <Compile Include="Models\EncounterModelsAPI\Item.cs" />
+    <Compile Include="Models\EncounterModelsAPI\ItemName.cs" />
+    <Compile Include="Models\EncounterModelsAPI\ModeNameByEncounter.cs" />
+    <Compile Include="Models\EncounterModelsAPI\ResultEncounter.cs" />
+    <Compile Include="Models\EncounterModelsAPI\RootEncounter.cs" />
+    <Compile Include="Models\EncounterModelsAPI\RootIndexEncounter.cs" />
     <Compile Include="Models\InstanceModelsAPI\Area.cs" />
     <Compile Include="Models\InstanceModelsAPI\Encounter.cs" />
     <Compile Include="Models\InstanceModelsAPI\Expansion.cs" />
@@ -62,6 +77,15 @@
     <Compile Include="Models\InstanceModelsAPI\ModeName.cs" />
     <Compile Include="Models\InstanceModelsAPI\RootIndexInstance.cs" />
     <Compile Include="Models\InstanceModelsAPI\RootInstance.cs" />
+    <Compile Include="Models\ItemModelsAPI\ItemClass.cs" />
+    <Compile Include="Models\ItemModelsAPI\ItemSubclass.cs" />
+    <Compile Include="Models\ItemModelsAPI\PreviewItem.cs" />
+    <Compile Include="Models\ItemModelsAPI\RootItem.cs" />
+    <Compile Include="Models\ItemModelsAPI\Spell.cs" />
+    <Compile Include="Models\ItemModelsAPI\SpellName.cs" />
+    <Compile Include="Models\MountModelsAPI\DataMount.cs" />
+    <Compile Include="Models\MountModelsAPI\ResultMount.cs" />
+    <Compile Include="Models\MountModelsAPI\RootMount.cs" />
     <Compile Include="Models\SharedModelsAPI\Asset.cs" />
     <Compile Include="Models\SharedModelsAPI\Category.cs" />
     <Compile Include="Models\SharedModelsAPI\CreatureDisplay.cs" />
@@ -77,5 +101,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WowApplication.Models\WowApplication.Models.csproj">
+      <Project>{96840C0B-50C3-40A5-A30E-B1687965A63E}</Project>
+      <Name>WowApplication.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

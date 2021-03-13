@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext.cs" />
+    <Compile Include="EncounterItemRepository.cs" />
+    <Compile Include="EncounterRepository.cs" />
     <Compile Include="InstanceRepository.cs" />
+    <Compile Include="ItemRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

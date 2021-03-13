@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: lusitana;
-  src: url(../fonts/Lusitana/Lusitana-Regular.ttf) format("truetype");
+  src: url(../fonts/Lusitana-Regular.ttf) format("truetype");
 }
 
 
@@ -23,63 +23,59 @@
 
 /* Background */
 .body-index {
-  background-image: url(../Static/Images/accueil.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  
-  font-family: "lato", sans-serif;
-  font-weight: 200;
+    background-image: url(../Static/Images/accueil.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: "lato", sans-serif;
+    font-weight: 200;
+    /* Titre */
+    header {
+        position: relative;
+        margin-top: 30px;
+        font-family: lusitana;
+        color: #fdb42c;
+        -webkit-text-stroke: 1.5px #f1ce7c;
+        // border: 1px solid black;
+        height: 300px;
+        text-align: center;
+        opacity: 0.9;
 
-  /* Titre */
-  header {
-    position: relative;
-    margin-top: 30px;
-    font-family: lusitana;
-    color: #fdb42c;
-    -webkit-text-stroke: 1.5px #f1ce7c;
-    // border: 1px solid black;
-    height: 300px;
-    text-align: center;
-    opacity: 0.9;
+        .big_word {
+            text-transform: uppercase;
+            /* font-size: 8vw; */
+            text-shadow: 5px 5px black;
+            letter-spacing: 2px;
+        }
 
-    .big_word {
-      text-transform: uppercase;
-      /* font-size: 8vw; */
-      text-shadow: 5px 5px black;
+        .one {
+            font-size: 5vw;
+            position: relative;
+        }
 
-      letter-spacing: 2px;
+        .two {
+            font-size: 8vw;
+        }
+
+        .small_word {
+            position: absolute;
+            font-size: 1vw;
+            text-shadow: 1px 1px black;
+            left: 46.5%;
+            top: 35%;
+        }
     }
-
-    .one {
-      font-size: 5vw;
+    // Main
+    .main-index {
+        img {
+            display: table;
+            margin: 0 auto;
+            width: 350px;
+            border-radius: 10px;
+            border: 2px solid rgb(95, 96, 99);
+        }
     }
-
-    .two {
-      font-size: 8vw;
-    }
-
-    .small_word {
-      position: absolute;
-      font-size: 40px;
-      text-shadow: 1px 1px black;
-      left: 45%;
-      top: 20%;
-
-    }
-  }
-
-  // Main
-  .main-index {
-    img {
-      display: table;
-      margin: 0 auto;
-      width: 350px;
-      border-radius: 10px;
-      border: 2px solid rgb(95, 96, 99);
-    }
-  }
 }
 
 //   ----------------------------------------------MODAL-------------------------------------------------------

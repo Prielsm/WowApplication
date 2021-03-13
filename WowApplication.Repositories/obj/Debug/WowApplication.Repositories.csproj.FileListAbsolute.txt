@@ -1,0 +1,12 @@
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Repositories.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Repositories.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.DAL.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Entities.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Models.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.DAL.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Entities.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Models.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\obj\Debug\WowApplication.Repositories.csprojAssemblyReference.cache
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\obj\Debug\WowApplication.Repositories.csproj.CopyComplete
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\obj\Debug\WowApplication.Repositories.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\obj\Debug\WowApplication.Repositories.pdb

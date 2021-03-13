@@ -141,6 +141,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DonjonViewModel.cs" />
+    <Compile Include="Models\LootViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +159,9 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\CopperplateGothicLight.ttf" />
     <Content Include="fonts\Roboto-Regular.ttf" />
+    <Content Include="fonts\Lusitana-Regular.ttf" />
+    <Content Include="fonts\Hargalia.ttf" />
+    <Content Include="fonts\Tangerine_Regular.ttf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -185,9 +190,12 @@
     <Content Include="Static\Images\donjon_accueil.jpg" />
     <Content Include="Static\Images\garde_verite.jpg" />
     <Content Include="Static\Images\header_donjons.jpg" />
+    <Content Include="Static\Images\icon-wow.png" />
+    <Content Include="Static\Images\icon_bow.jpg" />
     <Content Include="Static\Images\jeune-sabre-fantomatique.png" />
     <Content Include="Static\Images\karazhan.jpg" />
     <Content Include="Static\Images\karazhan2.png" />
+    <Content Include="Static\Images\kisspng-paper-quill-drawing-inkwell-pen-5b1564117b19f0.0396149115281285295042.png" />
     <Content Include="Static\Images\map_977539.jpg" />
     <Content Include="Static\Images\phenix-royal.png" />
     <Content Include="Static\Images\serpent-nuage-astral.png" />
@@ -213,17 +221,16 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scss\donjons.scss" />
     <Content Include="Scss\loot.scss" />
     <Content Include="Scss\styles.scss" />
     <Content Include="Views\Shared\_LayoutIndex.cshtml" />
+    <Content Include="Views\Home\Donjons.cshtml" />
+    <Content Include="Views\Home\Loot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -237,6 +244,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WowApplication.API\WowApplication.API.csproj">
+      <Project>{D6350E3B-8550-4A48-9500-177B3AA94EF3}</Project>
+      <Name>WowApplication.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WowApplication.Models\WowApplication.Models.csproj">
+      <Project>{96840C0B-50C3-40A5-A30E-B1687965A63E}</Project>
+      <Name>WowApplication.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WowApplication.Repositories\WowApplication.Repositories.csproj">
+      <Project>{3DD320F1-23B6-47CC-BAEF-202822E471CC}</Project>
+      <Name>WowApplication.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,12 @@
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\bin\Debug\WowApplication.API.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\bin\Debug\WowApplication.API.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\bin\Debug\Newtonsoft.Json.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\bin\Debug\RestSharp.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\bin\Debug\WowApplication.Models.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\bin\Debug\WowApplication.Models.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\bin\Debug\Newtonsoft.Json.xml
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\bin\Debug\RestSharp.xml
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\obj\Debug\WowApplication.API.csprojAssemblyReference.cache
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\obj\Debug\WowApplication.API.csproj.CopyComplete
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\obj\Debug\WowApplication.API.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\obj\Debug\WowApplication.API.pdb

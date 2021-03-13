@@ -21,18 +21,21 @@ namespace WowApplication.Repositories
 
         public List<InstanceEntity> Get()
         {
-            throw new NotImplementedException();
+            string requete = @"SELECT * FROM Instance";
+            return base.Get(requete);
         }
 
         public InstanceEntity GetOne(int PK)
         {
-            throw new NotImplementedException();
+            string requete = @"SELECT * From Instance where Id = " + PK;
+            return base.GetOne(PK, requete);
         }
+       
 
         public bool Insert(InstanceEntity toInsert)
         {
-            string requete = @"INSERT INTO Instance (Name, Type, Location)
-                               VALUES (@Name, @Type, @Location)";
+            string requete = @"INSERT INTO Instance (Id, Name, Type, Location, Media, Description)
+                               VALUES (@Id, @Name, @Type, @Location, @Media, @Description)";
             return base.Insert(toInsert, requete);
     
         }

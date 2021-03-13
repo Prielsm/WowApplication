@@ -2,9 +2,9 @@ C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\bin\Debug\WowApplication.DB.dll
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\bin\Debug\WowApplication.DB.pdb
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\WowApplication.DB.sqlprojAssemblyReference.cache
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\WowApplication.DB.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\WowApplication.DB.pdb
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\Model.xml
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\refactor.xml
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\postdeploy.sql
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\predeploy.sql
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\WowApplication.DB.dll
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\WowApplication.DB.pdb

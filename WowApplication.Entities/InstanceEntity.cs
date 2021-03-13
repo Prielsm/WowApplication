@@ -9,7 +9,7 @@ namespace WowApplication.Entities
     public class InstanceEntity
     {
         private int _id;
-        private string _name, _type, _location, _zone, _picture, _pictureOpacity, _video;
+        private string _name, _type, _location, _zone, _picture, _pictureOpacity, _video, _media, _description;
 
         public int Id
         {
@@ -112,6 +112,32 @@ namespace WowApplication.Entities
             set
             {
                 _video = value;
+            }
+        }
+
+        public string Media
+        {
+            get
+            {
+                return _media;
+            }
+
+            set
+            {
+                _media = value;
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return _description;
+            }
+
+            set
+            {
+                _description = value;
             }
         }
     }

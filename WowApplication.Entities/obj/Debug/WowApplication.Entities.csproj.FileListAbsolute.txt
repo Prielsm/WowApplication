@@ -1,0 +1,5 @@
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Entities\bin\Debug\WowApplication.Entities.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Entities\bin\Debug\WowApplication.Entities.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Entities\obj\Debug\WowApplication.Entities.csprojAssemblyReference.cache
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Entities\obj\Debug\WowApplication.Entities.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Entities\obj\Debug\WowApplication.Entities.pdb

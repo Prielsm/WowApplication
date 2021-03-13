@@ -27,6 +27,7 @@ namespace WowApplication.API.Functions
         public static HttpRequestMessage CreateHttpRequest(HttpMethod method, Uri url)
         {
             var message = new HttpRequestMessage(method, url);
+            token = AuthentificationRepoAPI.GetAccessToken("b6b4ab532cb245c28315b1b2c606166b", "6Qw6ncBG8cQJBiPiuD2HihmrIbYUEzqE");
             message.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             return message;

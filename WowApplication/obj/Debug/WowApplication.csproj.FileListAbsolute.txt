@@ -95,3 +95,15 @@ C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bi
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\LibSassHost.xml
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\ru-ru\BundleTransformer.Core.resources.dll
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\x86\libsass.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\WowApplication.API.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\WowApplication.Models.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\RestSharp.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\WowApplication.API.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\WowApplication.Models.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\RestSharp.xml
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\WowApplication.Repositories.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\WowApplication.DAL.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\WowApplication.Entities.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\WowApplication.Repositories.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\WowApplication.DAL.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication\bin\WowApplication.Entities.pdb
