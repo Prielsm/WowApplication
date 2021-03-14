@@ -16,8 +16,6 @@ namespace WowApplication.API
         public const string localeUS = "en_US";
         public const string staticNamespaceUS = "static-us";
 
-
-
         public async Task<List<InstanceModel>> GetAllInstances()
         {
             //Récupération des instances et de leur id
@@ -28,42 +26,40 @@ namespace WowApplication.API
             if (resInstId != null)
             {
 
-                var resInst10 = resInstId.instances.Take(10);
+                var resInst10 = resInstId.instances.Take(2); // TODO : ca devrait être passé en params
 
-                foreach (var instance in resInstId.instances)
+                foreach (var instance in resInst10)
                 {
-                    InstanceModel instModel = new InstanceModel();
-                    instModel.Id = instance.id;
                     var resInstance = await InstanceRepoAPI.GetInstanceById(staticNamespace, locale, instance.id);
-                    instModel.Name = resInstance.name;
-                    instModel.Description = resInstance.description;
+
+                    InstanceModel instModel = new InstanceModel()
+                    {
+                        Id = instance.id, // TODO : tu devrais avoir tes ids perso et mettre les ids blizzard dans une autre propriété
+                        Name = resInstance.name,
+                        Description = resInstance.description,
+                    };
 
                     if (resInstance.category.type == "WORLD_BOSS")
                     {
                         instModel.Type = "WORLD BOSS";
                         instModel.Location = resInstance.name;
-                        var resMediaInstance = await InstanceRepoAPI.GetMediaInstanceById(staticNamespace, locale, instance.id);
-                        instModel.Media = resMediaInstance.assets[0].value;
-                        instModels.Add(instModel);
                     }
                     else if (resInstance.category.type == "DUNGEON")
                     {
                         instModel.Type = "DONJON";
                         instModel.Location = resInstance.location?.name;
-                        var resMediaInstance = await InstanceRepoAPI.GetMediaInstanceById(staticNamespace, locale, instance.id);
-                        instModel.Media = resMediaInstance.assets[0].value;
-                        instModels.Add(instModel);
                     }
                     else
                     {
                         instModel.Type = resInstance.category.type;
                         instModel.Location = resInstance.location?.name;
-                        var resMediaInstance = await InstanceRepoAPI.GetMediaInstanceById(staticNamespace, locale, instance.id);
-                        instModel.Media = resMediaInstance.assets[0].value;
-                        instModels.Add(instModel);
                     }
 
-                    
+                    var resMediaInstance = await InstanceRepoAPI.GetMediaInstanceById(staticNamespace, locale, instance.id);
+                    instModel.Media = resMediaInstance.assets[0].value;
+
+                    instModels.Add(instModel);
+
                 }
 
                 //Console.WriteLine("Instance à l'index 3: " + resInstId.instances[3].name + " en " + resInstId.instances[3].id);
@@ -81,12 +77,61 @@ namespace WowApplication.API
 
         }
 
-        public async Task<List<EncounterModel>> GetEncountersByInstanceId(int idInstance, List<int> idItems)
+        //public async Task<List<EncounterModel>> GetEncountersByInstanceId(int idInstance, List<int> idItems)
+        //{
+        //    List<EncounterModel> encModels = new List<EncounterModel>();
+
+        //    //On récupère les instances name grâce à la fct getInstanceById
+        //    var resInstance = await InstanceRepoAPI.GetInstanceById(staticNamespace, localeUS, idInstance);
+
+
+        //    var resEnc = await EncounterRepoAPI.SearchEncounter(staticNamespace, locale, resInstance.name);
+        //    if (resEnc != null)
+        //    {
+        //        foreach (ResultEncounter result in resEnc.results)
+        //        {
+        //            EncounterModel encModel = new EncounterModel();
+
+        //            encModel.Id = result.data.id;
+        //            encModel.Name = result.data.name.fr_FR;
+        //            encModel.IdInstance = result.data.instance.id;
+        //            encModel.IdItems = new List<int>();
+        //            int idMedia = result.data.creatures[0].creature_display.id;
+        //            var resMediaCreature = await ItemRepoAPI.GetMediaCreatureById(staticNamespace, localeUS, idMedia);
+        //            encModel.Media = resMediaCreature.assets[0].value;
+
+
+        //            foreach (var item in result.data.items)
+        //            {
+        //                encModel.IdItems.Add(item.item.id);
+        //                idItems.Add(item.item.id);
+        //            }
+
+        //            encModels.Add(encModel);
+
+
+
+        //        }
+
+        //    }
+
+
+        //    return encModels;
+        //}
+
+        /// <summary>
+        /// Gets the encounters and items by instance identifier.
+        /// </summary>
+        /// <param name="instanceModel">The instance model.</param>
+        /// <returns>
+        /// The encounters for the dungeon.
+        /// </returns>
+        public async Task<List<EncounterModel>> GetEncountersAndItemsByInstanceId(int instanceId)
         {
             List<EncounterModel> encModels = new List<EncounterModel>();
 
             //On récupère les instances name grâce à la fct getInstanceById
-            var resInstance = await InstanceRepoAPI.GetInstanceById(staticNamespace, localeUS, idInstance);
+            var resInstance = await InstanceRepoAPI.GetInstanceById(staticNamespace, localeUS, instanceId);
 
 
             var resEnc = await EncounterRepoAPI.SearchEncounter(staticNamespace, locale, resInstance.name);
@@ -94,31 +139,23 @@ namespace WowApplication.API
             {
                 foreach (ResultEncounter result in resEnc.results)
                 {
-                    EncounterModel encModel = new EncounterModel();
+                    EncounterModel encModel = new EncounterModel()
+                    {
+                        Id = result.data.id,
+                        Name = result.data.name.fr_FR,
+                        IdInstance = result.data.instance.id,
+                        Items = await GetItemsByID(result.data.items.Select(i => i.item.id).ToList()),
+                    };
 
-                    encModel.Id = result.data.id;
-                    encModel.Name = result.data.name.fr_FR;
-                    encModel.IdInstance = result.data.instance.id;
-                    encModel.IdItems = new List<int>();
                     int idMedia = result.data.creatures[0].creature_display.id;
                     var resMediaCreature = await ItemRepoAPI.GetMediaCreatureById(staticNamespace, localeUS, idMedia);
-                    encModel.Media = resMediaCreature.assets[0].value;
 
-
-                    foreach (var item in result.data.items)
-                    {
-                        encModel.IdItems.Add(item.item.id);
-                        idItems.Add(item.item.id);
-                    }
+                    encModel.Media = resMediaCreature?.assets[0]?.value;
 
                     encModels.Add(encModel);
-
-
-
                 }
 
             }
-
 
             return encModels;
         }
@@ -131,36 +168,36 @@ namespace WowApplication.API
             {
                 var resItem = await ItemRepoAPI.GetItemById(staticNamespace, locale, idItem);
                 var resItemMedia = await ItemRepoAPI.GetMediaItemById(staticNamespace, locale, idItem);
-                ItemModel itemModel = new ItemModel();
-                itemModel.Id = resItem.id;
-                itemModel.Name = resItem.name;
-                itemModel.Icon = resItemMedia.assets[0].value;
-                if (resItem.item_class.id == 15)
+
+                if (resItem != null && resItemMedia != null)
                 {
-                    if (resItem.item_subclass.id == 2) //Mascottes
+                    ItemModel itemModel = new ItemModel();
+                    itemModel.Id = resItem.id;
+                    itemModel.Name = resItem.name;
+                    itemModel.Icon = resItemMedia?.assets[0]?.value;
+                    if (resItem.item_class.id == 15)
                     {
-                        itemModel.Type = resItem.item_subclass.name;
-                        itemModel.CreatureName = resItem.preview_item.spells[0].spell.name;
-                        itemModel.Media = await GetPetMedia(resItem.id);
+                        if (resItem.item_subclass.id == 2) //Mascottes
+                        {
+                            itemModel.Type = resItem.item_subclass.name;
+                            itemModel.CreatureName = resItem.preview_item.spells[0].spell.name;
+                            itemModel.Media = await GetPetMedia(resItem.id);
+                        }
+                        else if (resItem.item_subclass.id == 5) //Montures
+                        {
+                            itemModel.Type = resItem.item_subclass.name;
+                            itemModel.CreatureName = resItem.preview_item.spells[0].spell.name;
+                            string media = await GetMountMedia(resItem.id);
+                            itemModel.Media = media;
+                        }
                     }
-                    else if (resItem.item_subclass.id == 5) //Montures
+                    else
                     {
-                        itemModel.Type = resItem.item_subclass.name;
-                        itemModel.CreatureName = resItem.preview_item.spells[0].spell.name;
-                        string media = await GetMountMedia(resItem.id);
-                        itemModel.Media = media;
+                        itemModel.Type = resItem.item_class.name;
+                        itemModel.SubType = resItem.item_subclass.name;
                     }
+                    itemModels.Add(itemModel);
                 }
-                
-                else
-                {
-                    itemModel.Type = resItem.item_class.name;
-                    itemModel.SubType = resItem.item_subclass.name;
-                }
-                itemModels.Add(itemModel);
-
-
-
             }
             return itemModels;
         }

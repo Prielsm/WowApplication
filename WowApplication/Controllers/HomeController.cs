@@ -30,43 +30,44 @@ namespace WowApplication.Controllers
             //GET ALL ENCOUNTERS  
             foreach (var instance in allInstances)
             {
-                myEncounters = await uofAPI.GetEncountersByInstanceId(instance.Id, idItems);
-                foreach (var myEncounter in myEncounters)
-                {
-                    allEncounters.Add(myEncounter);
-                    idEncounters.Add(myEncounter.Id);
-                }
+                myEncounters.AddRange(await uofAPI.GetEncountersAndItemsByInstanceId(instance.Id));
+
+                //foreach (var myEncounter in myEncounters)
+                //{
+                //    allEncounters.Add(myEncounter);
+                //    idEncounters.Add(myEncounter.Id);
+                //}
             }
-            List<int> newidEnc = idEncounters.Distinct().ToList();
+            //List<int> newidEnc = idEncounters.Distinct().ToList();
 
-            //GET OFF DUPLICATE ENCOUNTERS MODELS
-            var uniqueEncounters = allEncounters.GroupBy(p => p.Id)
-                           .Select(grp => grp.First())
-                           .ToArray();
+            ////GET OFF DUPLICATE ENCOUNTERS MODELS
+            //var uniqueEncounters = allEncounters.GroupBy(p => p.Id)
+            //               .Select(grp => grp.First())
+            //               .ToArray();
 
-            List<EncounterItemModel> encounterItemModels = new List<EncounterItemModel>();
+            //List<EncounterItemModel> encounterItemModels = new List<EncounterItemModel>();
             ////Récupérer que 10 boss
             //var uniqueEncounters10 = new List<EncounterModel>();
             //for (int i = 0; i < 10; i++)
             //{
             //    uniqueEncounters10.Add(uniqueEncounters[i]);
             //}
-            foreach (var uniqueEncounter in uniqueEncounters)
-            {
-                int id = uniqueEncounter.Id;
-                List<int> idItems2 = uniqueEncounter.IdItems;
+            //foreach (var uniqueEncounter in uniqueEncounters)
+            //{
+            //    int id = uniqueEncounter.Id;
+            //    List<int> idItems2 = uniqueEncounter.IdItems;
 
-                foreach (var item in idItems2)
-                {
-                    EncounterItemModel encounterItemModel = new EncounterItemModel();
-                    encounterItemModel.IdEncounter = id;
-                    encounterItemModel.IdItem = item;
-                    encounterItemModels.Add(encounterItemModel);
-                }
-            }
-            var UniqueEncounterModels = encounterItemModels.GroupBy(p => p.IdEncounter)
-                           .Select(grp => grp.First())
-                           .ToArray();
+            //    foreach (var item in idItems2)
+            //    {
+            //        EncounterItemModel encounterItemModel = new EncounterItemModel();
+            //        encounterItemModel.IdEncounter = id;
+            //        encounterItemModel.IdItem = item;
+            //        encounterItemModels.Add(encounterItemModel);
+            //    }
+            //}
+            //var UniqueEncounterModels = encounterItemModels.GroupBy(p => p.IdEncounter)
+            //               .Select(grp => grp.First())
+            //               .ToArray();
 
             //VERIFICATION NULLABLE CHAMPS IN API 
             //List<int> worldBoss = new List<int>();
@@ -122,7 +123,7 @@ namespace WowApplication.Controllers
             //List<ItemModel> items1500 = await uofAPI.GetItemsByID(idItems1500);
             //List<ItemModel> items2000 = await uofAPI.GetItemsByID(idItems2000);
 
-            DataContext ctx = new DataContext(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
+            DataContext ctx = new DataContext(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString); // TODO : ton dataContext doit implementer IDisposable ou dans la mesure ou tu veux utiliser EF ( IdentityDbContext ) 
 
             //for (int i = 0; i < 200; i++)
             //{
@@ -186,6 +187,9 @@ namespace WowApplication.Controllers
             //{
             //    ctx.InsertEncounterItem(item);
             //}
+
+            // TODO : changer ca de place, tu appelle pas ta DB dans ton FE
+            myEncounters.ForEach(m => ctx.InsertEncounter(m));
 
 
 

@@ -3,3 +3,8 @@ C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Mo
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Models\obj\Debug\WowApplication.Models.csprojAssemblyReference.cache
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Models\obj\Debug\WowApplication.Models.dll
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Models\obj\Debug\WowApplication.Models.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Models\bin\Debug\WowApplication.Models.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Models\bin\Debug\WowApplication.Models.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Models\obj\Debug\WowApplication.Models.csprojAssemblyReference.cache
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Models\obj\Debug\WowApplication.Models.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Models\obj\Debug\WowApplication.Models.pdb

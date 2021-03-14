@@ -10,3 +10,15 @@ C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Re
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\obj\Debug\WowApplication.Repositories.csproj.CopyComplete
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\obj\Debug\WowApplication.Repositories.dll
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Repositories\obj\Debug\WowApplication.Repositories.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Repositories.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Repositories.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.DAL.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Entities.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Models.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.DAL.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Entities.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\bin\Debug\WowApplication.Models.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\obj\Debug\WowApplication.Repositories.csprojAssemblyReference.cache
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\obj\Debug\WowApplication.Repositories.csproj.CopyComplete
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\obj\Debug\WowApplication.Repositories.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.Repositories\obj\Debug\WowApplication.Repositories.pdb

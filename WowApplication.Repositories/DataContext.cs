@@ -46,6 +46,25 @@ namespace WowApplication.Repositories
             ee.Name = em.Name;
             ee.IdInstance = em.IdInstance;
             ee.Media = em.Media;
+            ee.ItemEntities = new List<ItemEntity>();
+
+            foreach (var item in em.Items)
+            {
+                ee.ItemEntities.Add(new ItemEntity()
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Type = item.Type,
+                    SubType = item.SubType,
+                    CreatureName = item.CreatureName,
+                    Icon = item.Icon,
+                    Media = item.Media,
+                });
+
+                // TODO : Add in db 
+
+                // TODO : Create entity for many to many
+            }
 
             return _encounterRepo.Insert(ee);
         }

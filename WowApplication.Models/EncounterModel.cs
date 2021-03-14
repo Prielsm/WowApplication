@@ -10,7 +10,7 @@ namespace WowApplication.Models
     {
         private int _id, _idInstance;
         private string _name, _media;
-        private List<int> idItems;
+        private List<ItemModel> _items;
 
         public int Id
         {
@@ -51,16 +51,16 @@ namespace WowApplication.Models
             }
         }
 
-        public List<int> IdItems
+        public List<ItemModel> Items
         {
             get
             {
-                return idItems;
+                return _items;
             }
 
             set
             {
-                idItems = value;
+                _items = value;
             }
         }
 

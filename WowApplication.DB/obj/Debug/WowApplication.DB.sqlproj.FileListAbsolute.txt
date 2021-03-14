@@ -8,3 +8,9 @@ C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\refactor.xml
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\postdeploy.sql
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\predeploy.sql
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.DB\bin\Debug\WowApplication.DB.dacpac
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.DB\bin\Debug\WowApplication.DB.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.DB\bin\Debug\WowApplication.DB.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.DB\obj\Debug\WowApplication.DB.sqlprojAssemblyReference.cache
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.DB\obj\Debug\WowApplication.DB.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.DB\obj\Debug\WowApplication.DB.pdb

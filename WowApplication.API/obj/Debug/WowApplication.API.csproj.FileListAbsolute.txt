@@ -10,3 +10,15 @@ C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.AP
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\obj\Debug\WowApplication.API.csproj.CopyComplete
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\obj\Debug\WowApplication.API.dll
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.API\obj\Debug\WowApplication.API.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\bin\Debug\WowApplication.API.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\bin\Debug\WowApplication.API.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\bin\Debug\Newtonsoft.Json.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\bin\Debug\RestSharp.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\bin\Debug\WowApplication.Models.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\bin\Debug\WowApplication.Models.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\bin\Debug\Newtonsoft.Json.xml
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\bin\Debug\RestSharp.xml
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\obj\Debug\WowApplication.API.csprojAssemblyReference.cache
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\obj\Debug\WowApplication.API.csproj.CopyComplete
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\obj\Debug\WowApplication.API.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.API\obj\Debug\WowApplication.API.pdb

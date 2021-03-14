@@ -3,3 +3,8 @@ C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DA
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DAL\obj\Debug\WowApplication.DAL.csprojAssemblyReference.cache
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DAL\obj\Debug\WowApplication.DAL.dll
 C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DAL\obj\Debug\WowApplication.DAL.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.DAL\bin\Debug\WowApplication.DAL.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.DAL\bin\Debug\WowApplication.DAL.pdb
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.DAL\obj\Debug\WowApplication.DAL.csprojAssemblyReference.cache
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.DAL\obj\Debug\WowApplication.DAL.dll
+C:\Users\b.priels\Source\Repos\WowApplication\WowApplication.DAL\obj\Debug\WowApplication.DAL.pdb
