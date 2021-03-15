@@ -1,0 +1,22 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Encounter] (Table)
+       [dbo].[EncounterItem] (Table)
+       [dbo].[Instance] (Table)
+       [dbo].[Item] (Table)
+       Default Constraint: unnamed constraint on [dbo].[Item] (Default Constraint)
+       [dbo].[FK_Encounter_Instance] (Foreign Key)
+       [dbo].[FK_Encounter_Item] (Foreign Key)
+       [dbo].[FK_Item_Encounter] (Foreign Key)
+
+** Supporting actions

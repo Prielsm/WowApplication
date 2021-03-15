@@ -1,0 +1,13 @@
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\bin\Debug\WowApplication.EF.dll
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\bin\Debug\WowApplication.EF.pdb
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\obj\Debug\WowApplication.EF.dll
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\obj\Debug\WowApplication.EF.pdb
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\bin\Debug\WowApplication.EF.dll.config
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\bin\Debug\EntityFramework.dll
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\bin\Debug\EntityFramework.xml
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\obj\Debug\WowApplication.EF.csprojAssemblyReference.cache
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\obj\Debug\WowApplication.EF.csproj.CopyComplete
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\bin\Debug\WowApplication.Models.dll
+C:\Users\b.priels\source\repos\WowApplication\WowApplication.EF\bin\Debug\WowApplication.Models.pdb
