@@ -46,6 +46,43 @@ namespace WowApplication.Repositories
             ee.Name = em.Name;
             ee.IdInstance = em.IdInstance;
             ee.Media = em.Media;
+            ee.ItemEntities = new List<ItemEntity>();
+
+            foreach (var item in em.Items)
+            {
+                ee.ItemEntities.Add(new ItemEntity()
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Type = item.Type,
+                    SubType = item.SubType,
+                    CreatureName = item.CreatureName,
+                    Icon = item.Icon,
+                    Media = item.Media,
+                });
+
+                //ItemEntity ie = new ItemEntity()
+                //{
+                //    Id = item.Id,
+                //    Name = item.Name,
+                //    Type = item.Type,
+                //    SubType = item.SubType,
+                //    CreatureName = item.CreatureName,
+                //    Icon = item.Icon,
+                //    Media = item.Media,
+                //};
+
+                //_itemRepo.Insert(ie);
+
+                //EncounterItemEntity encounterItemEntity = new EncounterItemEntity()
+                //{
+                //    IdEncounter = em.Id,
+                //    IdItem = item.Id,
+                //};
+
+
+                //_encounterItemRepo.Insert(encounterItemEntity);
+            }
 
             return _encounterRepo.Insert(ee);
         }

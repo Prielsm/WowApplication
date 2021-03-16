@@ -27,13 +27,16 @@ namespace WowApplication.API.Functions
         public static HttpRequestMessage CreateHttpRequest(HttpMethod method, Uri url)
         {
             var message = new HttpRequestMessage(method, url);
-            token = AuthentificationRepoAPI.GetAccessToken("b6b4ab532cb245c28315b1b2c606166b", "6Qw6ncBG8cQJBiPiuD2HihmrIbYUEzqE");
+
+            if (string.IsNullOrEmpty(token)) // TODO : gérer le fait qu'il soit encore rempli mais qu'il ne soit plus valable
+                InitializeAccessToken("b6b4ab532cb245c28315b1b2c606166b", "6Qw6ncBG8cQJBiPiuD2HihmrIbYUEzqE");
+
             message.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             return message;
         }
 
-        public static string GetAccessToken(string clientId, string clientSecret)
+        public static void InitializeAccessToken(string clientId, string clientSecret)
         {
             Console.WriteLine("Début de la récupération du token");
             var client = new RestClient(baseTokenURL);
@@ -46,7 +49,7 @@ namespace WowApplication.API.Functions
             var tokenResponse = JsonConvert.DeserializeObject<AccessTokenResponse>(response.Content);
 
             Console.WriteLine("Fin de la récupération du token");
-            return tokenResponse.access_token;
+            token = tokenResponse.access_token;
         }
     }
 

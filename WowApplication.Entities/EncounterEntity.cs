@@ -10,7 +10,7 @@ namespace WowApplication.Entities
     {
         private int _id, _idInstance;
         private string _name, _media;
-        //private List<ItemEntity> _itemEntities;
+        private List<ItemEntity> _itemEntities;
 
 
         public int Id
@@ -65,17 +65,17 @@ namespace WowApplication.Entities
             }
         }
 
-        //    public List<ItemEntity> ItemEntities
-        //    {
-        //        get
-        //        {
-        //            return _itemEntities;
-        //        }
+        public List<ItemEntity> ItemEntities
+        {
+            get
+            {
+                return _itemEntities;
+            }
 
-        //        set
-        //        {
-        //            _itemEntities = value;
-        //        }
-        //    //}
+            set
+            {
+                _itemEntities = value;
+            }
+        }
     }
 }

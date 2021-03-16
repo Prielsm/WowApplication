@@ -10,7 +10,8 @@ namespace WowApplication.Models
     {
         private int _id, _idInstance;
         private string _name, _media;
-        private List<int> idItems;
+        private List<ItemModel> _items;
+
 
         public int Id
         {
@@ -51,18 +52,6 @@ namespace WowApplication.Models
             }
         }
 
-        public List<int> IdItems
-        {
-            get
-            {
-                return idItems;
-            }
-
-            set
-            {
-                idItems = value;
-            }
-        }
 
         public string Media
         {
@@ -74,6 +63,19 @@ namespace WowApplication.Models
             set
             {
                 _media = value;
+            }
+        }
+
+        public List<ItemModel> Items
+        {
+            get
+            {
+                return _items;
+            }
+
+            set
+            {
+                _items = value;
             }
         }
     }

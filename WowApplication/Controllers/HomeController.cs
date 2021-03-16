@@ -30,43 +30,46 @@ namespace WowApplication.Controllers
             //GET ALL ENCOUNTERS  
             foreach (var instance in allInstances)
             {
-                myEncounters = await uofAPI.GetEncountersByInstanceId(instance.Id, idItems);
-                foreach (var myEncounter in myEncounters)
-                {
-                    allEncounters.Add(myEncounter);
-                    idEncounters.Add(myEncounter.Id);
-                }
+                myEncounters.AddRange(await uofAPI.GetEncountersAndItemsByInstanceId(instance.Id));
+
+                //myEncounters = await uofAPI.GetEncountersByInstanceId(instance.Id, idItems);
+                //foreach (var myEncounter in myEncounters)
+                //{
+                //    allEncounters.Add(myEncounter);
+                //    idEncounters.Add(myEncounter.Id);
+                //}
             }
-            List<int> newidEnc = idEncounters.Distinct().ToList();
+            //List<int> newidEnc = idEncounters.Distinct().ToList();
 
             //GET OFF DUPLICATE ENCOUNTERS MODELS
-            var uniqueEncounters = allEncounters.GroupBy(p => p.Id)
-                           .Select(grp => grp.First())
-                           .ToArray();
+            //var uniqueEncounters = allEncounters.GroupBy(p => p.Id)
+            //               .Select(grp => grp.First())
+            //               .ToArray();
 
-            List<EncounterItemModel> encounterItemModels = new List<EncounterItemModel>();
+            //List<EncounterItemModel> encounterItemModels = new List<EncounterItemModel>();
             ////Récupérer que 10 boss
             //var uniqueEncounters10 = new List<EncounterModel>();
             //for (int i = 0; i < 10; i++)
             //{
             //    uniqueEncounters10.Add(uniqueEncounters[i]);
             //}
-            foreach (var uniqueEncounter in uniqueEncounters)
-            {
-                int id = uniqueEncounter.Id;
-                List<int> idItems2 = uniqueEncounter.IdItems;
+            ////Remplir la table item grace aux boss et à leur liste d'id d'items
+            //foreach (var uniqueEncounter in uniqueEncounters)
+            //{
+            //    int id = uniqueEncounter.Id;
+            //    List<int> idItems2 = uniqueEncounter.IdItems;
 
-                foreach (var item in idItems2)
-                {
-                    EncounterItemModel encounterItemModel = new EncounterItemModel();
-                    encounterItemModel.IdEncounter = id;
-                    encounterItemModel.IdItem = item;
-                    encounterItemModels.Add(encounterItemModel);
-                }
-            }
-            var UniqueEncounterModels = encounterItemModels.GroupBy(p => p.IdEncounter)
-                           .Select(grp => grp.First())
-                           .ToArray();
+            //    foreach (var item in idItems2)
+            //    {
+            //        EncounterItemModel encounterItemModel = new EncounterItemModel();
+            //        encounterItemModel.IdEncounter = id;
+            //        encounterItemModel.IdItem = item;
+            //        encounterItemModels.Add(encounterItemModel);
+            //    }
+            //}
+            //var UniqueEncounterModels = encounterItemModels.GroupBy(p => p.IdEncounter)
+            //               .Select(grp => grp.First())
+            //               .ToArray();
 
             //VERIFICATION NULLABLE CHAMPS IN API 
             //List<int> worldBoss = new List<int>();
@@ -124,6 +127,7 @@ namespace WowApplication.Controllers
 
             DataContext ctx = new DataContext(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
 
+            ////INSERER LES 200 PREMIERS BOSS
             //for (int i = 0; i < 200; i++)
             //{
             //    List<EncounterModel> uniqueEncounters200 = new List<EncounterModel>();
@@ -134,58 +138,31 @@ namespace WowApplication.Controllers
             //    }
             //}
 
-            //for (int i = 0; i < 200; i++)
+            ////INSERER LES TABLES INTERMEDIAIRES PAR 200
+            //List<EncounterItemModel> encounterItemModelsBy200 = new List<EncounterItemModel>();
+
+            //for (int y = 0; y < 1000; y+=200)
             //{
-            //    List<EncounterItemModel> encounterItemModels200 = new List<EncounterItemModel>();
-            //    encounterItemModels200.Add(encounterItemModels[i]);
-            //    foreach (var item in encounterItemModels200)
+            //    for (int i = 0; i < (y + 200); i++)
+            //    {
+            //        encounterItemModelsBy200.Add(encounterItemModels[i]);
+
+            //    }
+            //    foreach (var item in encounterItemModelsBy200)
             //    {
             //        ctx.InsertEncounterItem(item);
             //    }
-            //}
-            //for (int i = 200; i < 400; i++)
-            //{
-            //    List<EncounterItemModel> encounterItemModels200 = new List<EncounterItemModel>();
-            //    encounterItemModels200.Add(encounterItemModels[i]);
-            //    foreach (var item in encounterItemModels200)
-            //    {
-            //        ctx.InsertEncounterItem(item);
-            //    }
-            //}
-            //for (int i = 400; i < 600; i++)
-            //{
-            //    List<EncounterItemModel> encounterItemModels200 = new List<EncounterItemModel>();
-            //    encounterItemModels200.Add(encounterItemModels[i]);
-            //    foreach (var item in encounterItemModels200)
-            //    {
-            //        ctx.InsertEncounterItem(item);
-            //    }
-            //}
-            //for (int i = 600; i < 800; i++)
-            //{
-            //    List<EncounterItemModel> encounterItemModels200 = new List<EncounterItemModel>();
-            //    encounterItemModels200.Add(encounterItemModels[i]);
-            //    foreach (var item in encounterItemModels200)
-            //    {
-            //        ctx.InsertEncounterItem(item);
-            //    }
-            //}
-            //for (int i = 800; i < 1000; i++)
-            //{
-            //    List<EncounterItemModel> encounterItemModels200 = new List<EncounterItemModel>();
-            //    encounterItemModels200.Add(encounterItemModels[i]);
-            //    foreach (var item in encounterItemModels200)
-            //    {
-            //        ctx.InsertEncounterItem(item);
-            //    }
+            //    encounterItemModelsBy200.Clear();
             //}
 
-
-
+            //INSERER TOUTES LES TABLES INTERMEDIAIRES
             //foreach (var item in encounterItemModels)
             //{
             //    ctx.InsertEncounterItem(item);
             //}
+
+            //INSERER MES BOSS
+            myEncounters.ForEach(m => ctx.InsertEncounter(m));
 
 
 
