@@ -25,10 +25,10 @@ namespace WowApplication.API
 
             if (resInstId != null)
             {
+                // On prend que deux instances pour le test 
+                var resInst2 = resInstId.instances.Take(2);
 
-                var resInst10 = resInstId.instances.Take(2); // TODO : ca devrait être passé en params
-
-                foreach (var instance in resInst10)
+                foreach (var instance in resInst2)
                 {
                     var resInstance = await InstanceRepoAPI.GetInstanceById(staticNamespace, locale, instance.id);
 
@@ -61,64 +61,62 @@ namespace WowApplication.API
                     instModels.Add(instModel);
 
                 }
-
-                //Console.WriteLine("Instance à l'index 3: " + resInstId.instances[3].name + " en " + resInstId.instances[3].id);
-                //Console.WriteLine("Instance récupérée:");
-                //Console.WriteLine("Name: " + resInstance.name + "  Type: " + resInstance.category.type + "  Media: " + resInstance.media.id + " Localisation: " + resInstance.location.name);
-                //foreach (var encounter in resInstance.encounters)
-                //{
-                //    Console.WriteLine("Boss numéro " + encounter.id + ": nom = " + encounter.name);
-                //}
-                //var mediaInst = await InstanceRepoAPI.GetMediaInstanceById(staticNamespace, locale, resInstId.instances[2].id);
-                //Console.WriteLine("Media de l'instance à index 0: " + mediaInst.assets[0].value);
             }
 
             return instModels;
 
         }
 
-        //public async Task<List<EncounterModel>> GetEncountersByInstanceId(int idInstance, List<int> idItems)
-        //{
-        //    List<EncounterModel> encModels = new List<EncounterModel>();
 
-        //    //On récupère les instances name grâce à la fct getInstanceById
-        //    var resInstance = await InstanceRepoAPI.GetInstanceById(staticNamespace, localeUS, idInstance);
+        #region On va récupérer les boss ainsi qu'une liste d'idItems PAR BOSS grâce à la propriété IdItems dans le ENCOUNTERMODEL
+        public async Task<List<EncounterModel>> GetEncountersByInstanceId(int idInstance, List<int> idItems)
+        {
+            List<EncounterModel> encModels = new List<EncounterModel>();
 
-
-        //    var resEnc = await EncounterRepoAPI.SearchEncounter(staticNamespace, locale, resInstance.name);
-        //    if (resEnc != null)
-        //    {
-        //        foreach (ResultEncounter result in resEnc.results)
-        //        {
-        //            EncounterModel encModel = new EncounterModel();
-
-        //            encModel.Id = result.data.id;
-        //            encModel.Name = result.data.name.fr_FR;
-        //            encModel.IdInstance = result.data.instance.id;
-        //            encModel.IdItems = new List<int>();
-        //            int idMedia = result.data.creatures[0].creature_display.id;
-        //            var resMediaCreature = await ItemRepoAPI.GetMediaCreatureById(staticNamespace, localeUS, idMedia);
-        //            encModel.Media = resMediaCreature.assets[0].value;
+            //On récupère les instances name grâce à la fct getInstanceById
+            var resInstance = await InstanceRepoAPI.GetInstanceById(staticNamespace, localeUS, idInstance);
 
 
-        //            foreach (var item in result.data.items)
-        //            {
-        //                encModel.IdItems.Add(item.item.id);
-        //                idItems.Add(item.item.id);
-        //            }
+            var resEnc = await EncounterRepoAPI.SearchEncounter(staticNamespace, locale, resInstance.name);
+            if (resEnc != null)
+            {
+                foreach (ResultEncounter result in resEnc.results)
+                {
+                    EncounterModel encModel = new EncounterModel();
 
-        //            encModels.Add(encModel);
+                    encModel.Id = result.data.id;
+                    encModel.Name = result.data.name.fr_FR;
+                    encModel.IdInstance = result.data.instance.id;
+                    encModel.IdItems = new List<int>();
+                    int idMedia = result.data.creatures[0].creature_display.id;
+                    var resMediaCreature = await ItemRepoAPI.GetMediaCreatureById(staticNamespace, localeUS, idMedia);
+                    encModel.Media = resMediaCreature.assets[0].value;
+
+
+                    foreach (var item in result.data.items)
+                    {
+                        encModel.IdItems.Add(item.item.id);
+
+                        //Je remplis une liste d'idItems récupérée de l'extérieur pour pouvoir 
+                        //remplir ma table ITEM indépendamment des boss (récupérer tous les id dans une liste,
+                        //Enlever les doublons, récupérer les ITEMMODEL avec "GetItemsByID" et les insérer dans la db"
+                        idItems.Add(item.item.id);
+                    }
+
+                    encModels.Add(encModel);
 
 
 
-        //        }
+                }
 
-        //    }
+            }
 
 
-        //    return encModels;
-        //}
+            return encModels;
+        }
+        #endregion
 
+        #region ON va récupérer une liste de ENCOUNTERMODEL par instance et pour chaque boss, on va créér une liste de ITEMMODEL qu'on va remplir grâce à la fonction "GetItemsByID"
         /// <summary>
         /// Gets the encounters and items by instance identifier.
         /// </summary>
@@ -159,7 +157,8 @@ namespace WowApplication.API
             }
 
             return encModels;
-        }
+        } 
+        #endregion
 
 
         public async Task<List<ItemModel>> GetItemsByID(List<int> idItems)

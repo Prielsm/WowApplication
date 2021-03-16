@@ -24,6 +24,7 @@ namespace WowApplication.Repositories
             _itemRepo = new ItemRepository(connectionString);
         }
 
+        #region Mapping de l'insertion de toutes les instances 
         public bool InsertInstance(InstanceModel im)
         {
             //Mappers
@@ -37,8 +38,26 @@ namespace WowApplication.Repositories
 
             return _instanceRepo.Insert(ie);
         }
+        #endregion
 
+        #region Insérer un boss dans ma db
         public bool InsertEncounter(EncounterModel em)
+        {
+            //Mappers
+            EncounterEntity ee = new EncounterEntity();
+            ee.Id = em.Id;
+            ee.Name = em.Name;
+            ee.IdInstance = em.IdInstance;
+            ee.Media = em.Media;
+
+            return _encounterRepo.Insert(ee);
+
+
+        }
+        #endregion
+
+        #region Insérer mes boss et items associés dans ma db ainsi que la table intermédiaire
+        public bool InsertEncounterAndItem(EncounterModel em)
         {
             //Mappers
             EncounterEntity ee = new EncounterEntity();
@@ -48,20 +67,10 @@ namespace WowApplication.Repositories
             ee.Media = em.Media;
             ee.ItemEntities = new List<ItemEntity>();
 
+
             foreach (var item in em.Items)
             {
-                ee.ItemEntities.Add(new ItemEntity()
-                {
-                    Id = item.Id,
-                    Name = item.Name,
-                    Type = item.Type,
-                    SubType = item.SubType,
-                    CreatureName = item.CreatureName,
-                    Icon = item.Icon,
-                    Media = item.Media,
-                });
-
-                //ItemEntity ie = new ItemEntity()
+                //ee.ItemEntities.Add(new ItemEntity()
                 //{
                 //    Id = item.Id,
                 //    Name = item.Name,
@@ -70,22 +79,34 @@ namespace WowApplication.Repositories
                 //    CreatureName = item.CreatureName,
                 //    Icon = item.Icon,
                 //    Media = item.Media,
-                //};
+                //});
 
-                //_itemRepo.Insert(ie);
+                ItemEntity ie = new ItemEntity()
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Type = item.Type,
+                    SubType = item.SubType,
+                    CreatureName = item.CreatureName,
+                    Icon = item.Icon,
+                    Media = item.Media,
+                };
 
-                //EncounterItemEntity encounterItemEntity = new EncounterItemEntity()
-                //{
-                //    IdEncounter = em.Id,
-                //    IdItem = item.Id,
-                //};
+                _itemRepo.Insert(ie);
+
+                EncounterItemEntity encounterItemEntity = new EncounterItemEntity()
+                {
+                    IdEncounter = em.Id,
+                    IdItem = item.Id,
+                };
 
 
-                //_encounterItemRepo.Insert(encounterItemEntity);
+                _encounterItemRepo.Insert(encounterItemEntity);
             }
 
             return _encounterRepo.Insert(ee);
-        }
+        } 
+        #endregion
         public bool InsertEncounterItem(EncounterItemModel em)
         {
             //Mappers

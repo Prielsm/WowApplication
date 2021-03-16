@@ -27,75 +27,28 @@ namespace WowApplication.Controllers
             allInstances = await uofAPI.GetAllInstances();
 
 
-            //GET ALL ENCOUNTERS  
-            foreach (var instance in allInstances)
-            {
-                myEncounters.AddRange(await uofAPI.GetEncountersAndItemsByInstanceId(instance.Id));
+            #region Pour toutes les instances, on récupère: List de ENCOUNTERMODEL qui contiennent eux une liste d'IdItems associés à chacun dans le model
+            //foreach (var instance in allInstances)
+            //{
+            //    //On récupère aussi une liste d'idItems en paramètres pour rassembler tous les items existants ensemble 
+            //    //et pour pouvoir les insérer indépendamment des boss
+            //    myEncounters = await uofAPI.GetEncountersByInstanceId(instance.Id, idItems);
+            //    foreach (var myEncounter in myEncounters)
+            //    {
+            //        allEncounters.Add(myEncounter);
+            //        //On créée une liste d'id des boss pour vérifier après s'il y a pas de doublons
+            //        idEncounters.Add(myEncounter.Id);
+            //    }
+            //}
 
-                //myEncounters = await uofAPI.GetEncountersByInstanceId(instance.Id, idItems);
-                //foreach (var myEncounter in myEncounters)
-                //{
-                //    allEncounters.Add(myEncounter);
-                //    idEncounters.Add(myEncounter.Id);
-                //}
-            }
+            ////Pour vérifier que je n'ai pas de doublons pour mes boss
             //List<int> newidEnc = idEncounters.Distinct().ToList();
 
-            //GET OFF DUPLICATE ENCOUNTERS MODELS
-            //var uniqueEncounters = allEncounters.GroupBy(p => p.Id)
-            //               .Select(grp => grp.First())
-            //               .ToArray();
+            #endregion
 
-            //List<EncounterItemModel> encounterItemModels = new List<EncounterItemModel>();
-            ////Récupérer que 10 boss
-            //var uniqueEncounters10 = new List<EncounterModel>();
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    uniqueEncounters10.Add(uniqueEncounters[i]);
-            //}
-            ////Remplir la table item grace aux boss et à leur liste d'id d'items
-            //foreach (var uniqueEncounter in uniqueEncounters)
-            //{
-            //    int id = uniqueEncounter.Id;
-            //    List<int> idItems2 = uniqueEncounter.IdItems;
-
-            //    foreach (var item in idItems2)
-            //    {
-            //        EncounterItemModel encounterItemModel = new EncounterItemModel();
-            //        encounterItemModel.IdEncounter = id;
-            //        encounterItemModel.IdItem = item;
-            //        encounterItemModels.Add(encounterItemModel);
-            //    }
-            //}
-            //var UniqueEncounterModels = encounterItemModels.GroupBy(p => p.IdEncounter)
-            //               .Select(grp => grp.First())
-            //               .ToArray();
-
-            //VERIFICATION NULLABLE CHAMPS IN API 
-            //List<int> worldBoss = new List<int>();
-            //List<int> descrNull = new List<int>();
-            //foreach (var instance in myInstances)
-            //{
-            //    if (instance.Location == null)
-            //    {
-            //        worldBoss.Add(instance.Id);
-            //    }
-            //    if (instance.Description == null)
-            //    {
-            //        descrNull.Add(instance.Id);
-            //    }
-            //}
-
-
-            ////GET ALL ENCOUNTERS FOR 1 INSTANCE
-            //myEncounters = await uofAPI.GetEncountersByInstanceId(allInstances[0].Id, idItems);
-            //foreach (var myEncounter in myEncounters)
-            //{
-            //    allEncounters.Add(myEncounter);
-            //}
-
-            //GET LIST ID ITEMS, GET OFF DUPLICATE AND GET ALL ITEMS
-            //Enlever les doublons
+            #region Créer une liste de ITEMMODEL grâce à la liste entière d'idItems récupérée lors de la récupération des ENCOUNTERMODEL (pour pouvoir les insérer dans la db indépendamment)
+            ////GET LIST ID ITEMS, GET OFF DUPLICATE AND GET ALL ITEMS
+            ////Enlever les doublons
             //List<int> newidItems = idItems.Distinct().ToList();
             ////Prendre les 500 premiers
             //List<int> idItems500 = new List<int>();
@@ -123,10 +76,62 @@ namespace WowApplication.Controllers
             //List<ItemModel> items500 = await uofAPI.GetItemsByID(idItems500);
             //List<ItemModel> items1000 = await uofAPI.GetItemsByID(idItems1000);
             //List<ItemModel> items1500 = await uofAPI.GetItemsByID(idItems1500);
-            //List<ItemModel> items2000 = await uofAPI.GetItemsByID(idItems2000);
+            //List<ItemModel> items2000 = await uofAPI.GetItemsByID(idItems2000); 
+            #endregion
+
+            #region Récupérer les boss d'une seule instance
+            ////GET ALL ENCOUNTERS FOR 1 INSTANCE
+            //myEncounters = await uofAPI.GetEncountersByInstanceId(allInstances[0].Id, idItems);
+            //foreach (var myEncounter in myEncounters)
+            //{
+            //    allEncounters.Add(myEncounter);
+            //} 
+            #endregion
+
+            #region Enlever les doublons de ma liste d'ENCOUNTERMODEL (passer de allEncounters à uniqueEncounters)
+            ////GET OFF DUPLICATE ENCOUNTERS MODELS
+            //var uniqueEncounters = allEncounters.GroupBy(p => p.Id)
+            //               .Select(grp => grp.First())
+            //               .ToArray();
+            #endregion
+
+            #region Créer la liste des tables intermédiaires ENCOUNTERITEMMODEL grâce à la liste d'idItem récupérée sur chaque ENCOUNTERMODEL
+            //List<EncounterItemModel> encounterItemModels = new List<EncounterItemModel>();
+            ////Récupérer que 10 boss
+            //var uniqueEncounters10 = new List<EncounterModel>();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    uniqueEncounters10.Add(uniqueEncounters[i]);
+            //}
+            ////Remplir la table item grace aux boss et à leur liste d'id d'items
+            //foreach (var uniqueEncounter in uniqueEncounters)
+            //{
+            //    int id = uniqueEncounter.Id;
+            //    List<int> idItems2 = uniqueEncounter.IdItems;
+
+            //    foreach (var item in idItems2)
+            //    {
+            //        EncounterItemModel encounterItemModel = new EncounterItemModel();
+            //        encounterItemModel.IdEncounter = id;
+            //        encounterItemModel.IdItem = item;
+            //        encounterItemModels.Add(encounterItemModel);
+            //    }
+            //}
+            #endregion
+
+
+            #region Pour toutes les instances on récupère: List de ENCOUNTERMODEL qui contiennent eux une liste de ITEMMODEL
+            foreach (var instance in allInstances)
+            {
+                myEncounters.AddRange(await uofAPI.GetEncountersAndItemsByInstanceId(instance.Id));
+            }
+            #endregion
+
+
 
             DataContext ctx = new DataContext(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
 
+            #region Insertion des 200 premiers boss
             ////INSERER LES 200 PREMIERS BOSS
             //for (int i = 0; i < 200; i++)
             //{
@@ -136,8 +141,10 @@ namespace WowApplication.Controllers
             //    {
             //        ctx.InsertEncounter(item);
             //    }
-            //}
+            //} 
+            #endregion
 
+            #region Insertion des tables intermédiaires ENCOUNTERITEMMODEL dans la db
             ////INSERER LES TABLES INTERMEDIAIRES PAR 200
             //List<EncounterItemModel> encounterItemModelsBy200 = new List<EncounterItemModel>();
 
@@ -159,10 +166,25 @@ namespace WowApplication.Controllers
             //foreach (var item in encounterItemModels)
             //{
             //    ctx.InsertEncounterItem(item);
-            //}
+            //} 
+            #endregion
 
+            #region Insertion de toutes les instances
+            foreach (var instance in allInstances)
+            {
+                ctx.InsertInstance(instance);
+
+            }
+            #endregion
+
+            #region Insertion des encounters, des items et de la tables intermédiaire 
             //INSERER MES BOSS
-            myEncounters.ForEach(m => ctx.InsertEncounter(m));
+            myEncounters.ForEach(m => ctx.InsertEncounterAndItem(m));
+
+            #endregion
+
+            
+
 
 
 
