@@ -59,6 +59,7 @@ namespace WowApplication.Repositories
         #region Insérer mes boss et items associés dans ma db ainsi que la table intermédiaire
         public bool InsertEncounterAndItem(EncounterModel em)
         {
+
             //Mappers
             EncounterEntity ee = new EncounterEntity();
             ee.Id = em.Id;
@@ -92,7 +93,7 @@ namespace WowApplication.Repositories
                     Media = item.Media,
                 };
 
-                _itemRepo.Insert(ie);
+                this._itemRepo.Insert(ie);
 
                 EncounterItemEntity encounterItemEntity = new EncounterItemEntity()
                 {
@@ -101,7 +102,7 @@ namespace WowApplication.Repositories
                 };
 
 
-                _encounterItemRepo.Insert(encounterItemEntity);
+                this._encounterItemRepo.Insert(encounterItemEntity);
             }
 
             return _encounterRepo.Insert(ee);

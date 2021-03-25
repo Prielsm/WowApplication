@@ -19,12 +19,13 @@ namespace WowApplication.Controllers
             List<InstanceModel> allInstances = new List<InstanceModel>();
             List<EncounterModel> allEncounters = new List<EncounterModel>();
             List<EncounterModel> myEncounters = new List<EncounterModel>();
+            List<EncounterItemModel> encounterItemModels = new List<EncounterItemModel>();
             List<int> idItems = new List<int>();
             List<int> idEncounters = new List<int>();
             List<ItemModel> allItems = new List<ItemModel>();
 
             // GET ALL INSTANCES
-            allInstances = await uofAPI.GetAllInstances();
+            //allInstances = await uofAPI.GetAllInstances();
 
 
             #region Pour toutes les instances, on récupère: List de ENCOUNTERMODEL qui contiennent eux une liste d'IdItems associés à chacun dans le model
@@ -121,10 +122,10 @@ namespace WowApplication.Controllers
 
 
             #region Pour toutes les instances on récupère: List de ENCOUNTERMODEL qui contiennent eux une liste de ITEMMODEL
-            foreach (var instance in allInstances)
-            {
-                myEncounters.AddRange(await uofAPI.GetEncountersAndItemsByInstanceId(instance.Id));
-            }
+            //foreach (var instance in allInstances)
+            //{
+            //    myEncounters.AddRange(await uofAPI.GetEncountersAndItemsByInstanceId(instance.Id));
+            //}
             #endregion
 
 
@@ -169,19 +170,33 @@ namespace WowApplication.Controllers
             //} 
             #endregion
 
-            #region Insertion de toutes les instances
-            foreach (var instance in allInstances)
-            {
-                ctx.InsertInstance(instance);
+            //#region Insertion de toutes les instances
+            //foreach (var instance in allInstances)
+            //{
+            //    ctx.InsertInstance(instance);
 
-            }
-            #endregion
+            //}
+            //#endregion
 
-            #region Insertion des encounters, des items et de la tables intermédiaire 
-            //INSERER MES BOSS
-            myEncounters.ForEach(m => ctx.InsertEncounterAndItem(m));
+            //#region Insertion des encounters, des items et de la tables intermédiaire 
+            ////INSERER MES BOSS
+            ////myEncounters.ForEach(m => ctx.InsertEncounter(m));
 
-            #endregion
+            //foreach (var myEncounter in myEncounters)
+            //{
+            //    ctx.InsertEncounter(myEncounter);
+            //    foreach (var item in myEncounter.Items)
+            //    {
+            //        ctx.InsertItem(item);
+            //        EncounterItemModel encounterItemModel = new EncounterItemModel();
+            //        encounterItemModel.IdEncounter = myEncounter.Id;
+            //        encounterItemModel.IdItem = item.Id;
+            //        ctx.InsertEncounterItem(encounterItemModel);
+
+            //    }
+            //}
+
+            //#endregion
 
             
 
