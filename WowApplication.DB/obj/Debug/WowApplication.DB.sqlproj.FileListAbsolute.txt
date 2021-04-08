@@ -1,6 +1,0 @@
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\bin\Debug\WowApplication.DB.dacpac
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\bin\Debug\WowApplication.DB.dll
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\bin\Debug\WowApplication.DB.pdb
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\WowApplication.DB.sqlprojAssemblyReference.cache
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\WowApplication.DB.dll
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DB\obj\Debug\WowApplication.DB.pdb

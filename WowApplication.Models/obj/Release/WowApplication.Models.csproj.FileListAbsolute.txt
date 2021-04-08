@@ -1,5 +1,0 @@
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Models\bin\Release\WowApplication.Models.dll
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Models\bin\Release\WowApplication.Models.pdb
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Models\obj\Release\WowApplication.Models.csprojAssemblyReference.cache
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Models\obj\Release\WowApplication.Models.dll
-C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.Models\obj\Release\WowApplication.Models.pdb
