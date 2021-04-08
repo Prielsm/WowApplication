@@ -13,11 +13,18 @@ namespace WowApplication.Models
 
         private InstanceModel _instanceModel;
         private List<EncounterModel> _encounterModels;
+        private List<ItemModel> _itemModels;
 
         public LootViewModel(int id)
         {
             InstanceModel = ctx.GetOneInstance(id);
             EncounterModels = ctx.GetEncountersByIdInstance(id);
+            ItemModels = new List<ItemModel>();
+
+            foreach (var encounterModel in EncounterModels)
+            {
+                ItemModels.AddRange(ctx.GetItemsByIdEncounter(encounterModel.Id)); 
+            }
         }
 
         public InstanceModel InstanceModel
@@ -43,6 +50,19 @@ namespace WowApplication.Models
             set
             {
                 _encounterModels = value;
+            }
+        }
+
+        public List<ItemModel> ItemModels
+        {
+            get
+            {
+                return _itemModels;
+            }
+
+            set
+            {
+                _itemModels = value;
             }
         }
     }

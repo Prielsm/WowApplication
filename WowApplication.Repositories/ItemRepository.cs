@@ -24,6 +24,14 @@ namespace WowApplication.Repositories
             throw new NotImplementedException();
         }
 
+        public List<ItemEntity> GetByIdEncounter(int id)
+        {
+            string requete = "SELECT * FROM Item " +
+                "INNER JOIN EncounterItem ON Item.Id = EncounterItem.IdItem " +
+                "WHERE EncounterItem.IdEncounter =" + id;
+            return base.Get(requete);
+        }
+
         public ItemEntity GetOne(int PK)
         {
             throw new NotImplementedException();

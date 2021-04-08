@@ -184,5 +184,30 @@ namespace WowApplication.Repositories
             return ems;
         }
 
+        public List<ItemModel> GetItemsByIdEncounter(int id)
+        {
+            List<ItemModel> ims = new List<ItemModel>();
+            List<ItemEntity> ies = ((ItemRepository)_itemRepo).GetByIdEncounter(id);
+
+            foreach (var ie in ies)
+            {
+                ItemModel im = new ItemModel();
+                im.Id = ie.Id;
+                im.Name = ie.Name;
+                im.Type = ie.Type;
+                im.SubType = ie.SubType;
+                im.CreatureName = ie.CreatureName;
+                im.Icon = ie.Icon;
+                im.Media = ie.Media;
+                im.IsObtained = ie.IsObtained;
+
+                ims.Add(im);
+
+            }
+
+
+            return ims;
+        }
+
     }
 }

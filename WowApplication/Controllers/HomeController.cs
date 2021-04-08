@@ -25,7 +25,7 @@ namespace WowApplication.Controllers
             List<ItemModel> allItems = new List<ItemModel>();
 
             // GET ALL INSTANCES
-            allInstances = await uofAPI.GetAllInstances();
+            //allInstances = await uofAPI.GetAllInstances();
 
 
             #region Pour toutes les instances, on récupère: List de ENCOUNTERMODEL qui contiennent eux une liste d'IdItems associés à chacun dans le model
@@ -130,7 +130,7 @@ namespace WowApplication.Controllers
 
 
 
-            DataContext ctx = new DataContext(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
+            //DataContext ctx = new DataContext(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
 
             #region Insertion des 200 premiers boss
             ////INSERER LES 200 PREMIERS BOSS
@@ -171,11 +171,11 @@ namespace WowApplication.Controllers
             #endregion
 
             #region Insertion de toutes les instances
-            foreach (var instance in allInstances)
-            {
-                ctx.InsertInstance(instance);
+            //foreach (var instance in allInstances)
+            //{
+            //    ctx.InsertInstance(instance);
 
-            }
+            //}
             #endregion
 
             #region Insertion des encounters, des items et de la tables intermédiaire 

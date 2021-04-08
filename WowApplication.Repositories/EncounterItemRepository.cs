@@ -25,6 +25,8 @@ namespace WowApplication.Repositories
             throw new NotImplementedException();
         }
 
+        
+
         public EncounterItemEntity GetOne(int PK)
         {
             throw new NotImplementedException();
