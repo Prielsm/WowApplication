@@ -28,7 +28,7 @@ namespace WowApplication.API
                 // On prend que deux instances pour le test 
                 var resInst2 = resInstId.instances.Take(2);
 
-                foreach (var instance in resInst2)
+                foreach (var instance in resInstId.instances)
                 {
                     var resInstance = await InstanceRepoAPI.GetInstanceById(staticNamespace, locale, instance.id);
 
@@ -56,7 +56,13 @@ namespace WowApplication.API
                     }
 
                     var resMediaInstance = await InstanceRepoAPI.GetMediaInstanceById(staticNamespace, locale, instance.id);
-                    instModel.Media = resMediaInstance.assets[0].value;
+                    int count = 0;
+                    do
+                    {
+                        instModel.Media = resMediaInstance.assets[0].value;
+                        count += 1;
+
+                    } while (resMediaInstance.assets[0].value == null && count < 3);
 
                     instModels.Add(instModel);
 

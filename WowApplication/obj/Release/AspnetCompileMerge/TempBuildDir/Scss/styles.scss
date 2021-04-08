@@ -1,0 +1,164 @@
+/* dependencies 
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "tailwindcss/dist/tailwind.min.css";
+*/
+
+@font-face {
+  font-family: lusitana;
+  src: url(../fonts/Lusitana-Regular.ttf) format("truetype");
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 2px;
+  font-size: 16px;
+
+}
+
+.d-none {
+  display: none;
+}
+
+/* Background */
+.body-index {
+    background-image: url(../Static/Images/accueil.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: "lato", sans-serif;
+    font-weight: 200;
+    /* Titre */
+    header {
+        position: relative;
+        margin-top: 30px;
+        font-family: lusitana;
+        color: #fdb42c;
+        -webkit-text-stroke: 1.5px #f1ce7c;
+        // border: 1px solid black;
+        height: 300px;
+        text-align: center;
+        opacity: 0.9;
+
+        .big_word {
+            text-transform: uppercase;
+            /* font-size: 8vw; */
+            text-shadow: 5px 5px black;
+            letter-spacing: 2px;
+        }
+
+        .one {
+            font-size: 5vw;
+            position: relative;
+        }
+
+        .two {
+            font-size: 8vw;
+        }
+
+        .small_word {
+            position: absolute;
+            font-size: 1vw;
+            text-shadow: 1px 1px black;
+            left: 46.5%;
+            top: 35%;
+        }
+    }
+    // Main
+    .main-index {
+        img {
+            display: table;
+            margin: 5% auto;
+            width: 350px;
+            border-radius: 10px;
+            border: 2px solid rgb(95, 96, 99);
+        }
+    }
+}
+
+//   ----------------------------------------------MODAL-------------------------------------------------------
+.modal {
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  position: fixed;
+  .inter-modal {
+    background-color: rgb(17, 17, 17);
+    border: 1px solid rgb(46, 45, 45);
+    width: 60vw;
+    height: 55vh;
+    display: table;
+    margin: 200px auto;
+    text-align: center;
+    position: relative;
+    h2 {
+      font-size: 30px;
+      margin-top: 30px;
+      font-weight: 500;
+    }
+    .dark-p {
+      color: rgb(60, 58, 58);
+      margin-bottom: 30px;
+    }
+    .email,
+    .password {
+      width: 500px;
+      margin: 20px 20%;
+      background-color: rgb(44, 44, 44);
+      border: 1px solid rgb(112, 112, 112);
+      padding: 5px;
+      border-radius: 5px;
+      position: relative;
+      align-items: center;
+      input {
+        background-color: rgb(29, 28, 28);
+        width: 70%;
+        margin-left: 150px;
+      }
+      span {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: rgb(125, 124, 124);
+      }
+    }
+    button {
+      background-color: rgb(153, 153, 153);
+      border: 1px solid rgb(153, 153, 153);
+      padding: 7px 30px;
+      border-radius: 5px;
+      color: rgb(31, 30, 30);
+      font-weight: 400;
+      margin-bottom: 30px;
+      &:hover {
+        border: 1px solid rgb(153, 153, 153);
+        background-color: rgb(17, 17, 17);
+        color: white;
+      }
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  }
+}
+
+//   -------------------------------------FOOTER Retour retour donjons-----------------------------------------
+footer {
+  width: 100%;
+  position: fixed;
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(17, 17, 17);
+  text-align: center;
+  border-top: 3px solid rgb(104, 98, 98);
+  font-size: 13px;
+  color: rgb(145, 137, 137);
+}

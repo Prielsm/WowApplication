@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Cnstr-Web.config Connection String" description="Cnstr Chaîne de connexion utilisée dans web.config par l’application pour accéder à la base de données." defaultValue="Data Source=DESKTOP-JE0D21M;Initial Catalog=WowApplication;User ID=WowAppUser;Password=WowAppUser;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\xampp\\htdocs\\Cours\\asp\.net\\Projet\\Projet\ ASP\\WowApplication\\WowApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Cnstr']/@connectionString" />
+  </parameter>
+</parameters>

@@ -25,7 +25,7 @@ namespace WowApplication.Controllers
             List<ItemModel> allItems = new List<ItemModel>();
 
             // GET ALL INSTANCES
-            //allInstances = await uofAPI.GetAllInstances();
+            allInstances = await uofAPI.GetAllInstances();
 
 
             #region Pour toutes les instances, on récupère: List de ENCOUNTERMODEL qui contiennent eux une liste d'IdItems associés à chacun dans le model
@@ -170,15 +170,15 @@ namespace WowApplication.Controllers
             //} 
             #endregion
 
-            //#region Insertion de toutes les instances
-            //foreach (var instance in allInstances)
-            //{
-            //    ctx.InsertInstance(instance);
+            #region Insertion de toutes les instances
+            foreach (var instance in allInstances)
+            {
+                ctx.InsertInstance(instance);
 
-            //}
-            //#endregion
+            }
+            #endregion
 
-            //#region Insertion des encounters, des items et de la tables intermédiaire 
+            #region Insertion des encounters, des items et de la tables intermédiaire 
             ////INSERER MES BOSS
             ////myEncounters.ForEach(m => ctx.InsertEncounter(m));
 
@@ -196,9 +196,9 @@ namespace WowApplication.Controllers
             //    }
             //}
 
-            //#endregion
+            #endregion
 
-            
+
 
 
 

@@ -1,0 +1,5 @@
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DAL\bin\Release\WowApplication.DAL.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DAL\bin\Release\WowApplication.DAL.pdb
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DAL\obj\Release\WowApplication.DAL.csprojAssemblyReference.cache
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DAL\obj\Release\WowApplication.DAL.dll
+C:\xampp\htdocs\Cours\asp.net\Projet\Projet ASP\WowApplication\WowApplication.DAL\obj\Release\WowApplication.DAL.pdb
