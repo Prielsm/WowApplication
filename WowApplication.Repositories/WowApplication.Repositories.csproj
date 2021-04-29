@@ -47,9 +47,14 @@
     <Compile Include="EncounterRepository.cs" />
     <Compile Include="InstanceRepository.cs" />
     <Compile Include="ItemRepository.cs" />
+    <Compile Include="MembreRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{138BE7CB-1ADF-4CB3-8E9E-416252433A63}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WowApplication.DAL\WowApplication.DAL.csproj">
       <Project>{37E17026-C7C6-4342-8BCC-9CEDB23AABA5}</Project>
       <Name>WowApplication.DAL</Name>

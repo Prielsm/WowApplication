@@ -1,27 +1,129 @@
-/* dependencies 
-@import "@fortawesome/fontawesome-free/css/all.css";
-@import "tailwindcss/dist/tailwind.min.css";
-*/
-
 @font-face {
-  font-family: lusitana;
-  src: url(../fonts/Lusitana-Regular.ttf) format("truetype");
+    font-family: lusitana;
+    src: url(../fonts/Lusitana-Regular.ttf) format("truetype");
 }
 
 
 * {
-  margin: 0;
-  padding: 0;
-  letter-spacing: 2px;
-  font-size: 16px;
-
+    margin: 0;
+    padding: 0;
+    letter-spacing: 2px;
+    font-size: 16px;
 }
 
 .d-none {
-  display: none;
+    display: none;
 }
 
-/* Background */
+
+//---------------------------------------------HEADER--------------------------------------
+body {
+    background-color: rgb(4, 3, 3);
+    color: white;
+    margin: 0;
+    padding: 0;
+
+    header {
+        width: 100%;
+
+        .header-img {
+            height: 200px;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            opacity: 0.5;
+        }
+
+        nav {
+            background-color: rgb(17, 17, 17);
+            border: 1px solid rgb(46, 45, 45);
+            position: relative;
+            width: 98%;
+            margin: 20px 1%;
+            align-items: center;
+            text-align: center;
+            min-height: 60px;
+            padding-left: 30px;
+
+            button {
+                span,
+                img {
+                    margin: 0 5px;
+                    font-size: 14px;
+                }
+
+                .icon-more {
+                    width: 15px;
+                }
+            }
+
+            .connection, .collection {
+                transition: all 0.5s;
+                position: absolute;
+                top: 6px;
+                border-radius: 30px;
+                width: 46px;
+                height: 43px;
+            }
+
+            .connection {
+                padding: 10px;
+                border: 1px solid rgb(46, 45, 45);
+                right: 20px;
+
+                i {
+                    position: absolute;
+                    top: 13px;
+                    right: 13px;
+                }
+
+                &:hover {
+                    background-color: rgb(46, 45, 45);
+                }
+            }
+
+            .collection {
+                right: 75px;
+                border: 1px solid rgb(191, 149, 62);
+                padding: 3px;
+                align-items: center;
+
+                img {
+                    position: absolute;
+                    top: 6px;
+                    right: 3px;
+                    width: 27px;
+                }
+
+                .span-collection {
+                    color: rgb(191, 149, 62);
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: visibility 0s, opacity 0.5s linear;
+                    margin-left: 10px;
+                }
+
+                &:hover {
+                    width: 140px;
+
+                    .span-collection {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .donjon-name {
+                font-weight: 200;
+                font-family: copperplateGothic;
+            }
+        }
+    }
+}
+
+
+// --------------------------INDEX - PAGE D'ACCUEIL----------------
 .body-index {
     background-image: url(../Static/Images/accueil.jpg);
     background-repeat: no-repeat;
@@ -70,7 +172,7 @@
     .main-index {
         img {
             display: table;
-            margin: 5% auto;
+            margin: 0 auto;
             width: 350px;
             border-radius: 10px;
             border: 2px solid rgb(95, 96, 99);
@@ -78,87 +180,40 @@
     }
 }
 
-//   ----------------------------------------------MODAL-------------------------------------------------------
-.modal {
-  background-color: rgba($color: #000000, $alpha: 0.8);
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  position: fixed;
-  .inter-modal {
-    background-color: rgb(17, 17, 17);
-    border: 1px solid rgb(46, 45, 45);
-    width: 60vw;
-    height: 55vh;
-    display: table;
-    margin: 200px auto;
+//   -------------------------------------FOOTER Retour donjons-----------------------------------------
+footer {
+    width: 100%;
+    position: fixed;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(21,21,21);
     text-align: center;
-    position: relative;
-    h2 {
-      font-size: 30px;
-      margin-top: 30px;
-      font-weight: 500;
-    }
-    .dark-p {
-      color: rgb(60, 58, 58);
-      margin-bottom: 30px;
-    }
-    .email,
-    .password {
-      width: 500px;
-      margin: 20px 20%;
-      background-color: rgb(44, 44, 44);
-      border: 1px solid rgb(112, 112, 112);
-      padding: 5px;
-      border-radius: 5px;
-      position: relative;
-      align-items: center;
-      input {
-        background-color: rgb(29, 28, 28);
-        width: 70%;
-        margin-left: 150px;
-      }
-      span {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        color: rgb(125, 124, 124);
-      }
-    }
-    button {
-      background-color: rgb(153, 153, 153);
-      border: 1px solid rgb(153, 153, 153);
-      padding: 7px 30px;
-      border-radius: 5px;
-      color: rgb(31, 30, 30);
-      font-weight: 400;
-      margin-bottom: 30px;
-      &:hover {
-        border: 1px solid rgb(153, 153, 153);
-        background-color: rgb(17, 17, 17);
-        color: white;
-      }
-    }
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
-  }
+    border-top: 3px solid rgb(104, 98, 98);
+    font-size: 13px;
+    color: rgb(145, 137, 137);
 }
 
-//   -------------------------------------FOOTER Retour retour donjons-----------------------------------------
-footer {
-  width: 100%;
-  position: fixed;
-  padding: 10px;
-  bottom: 0;
-  left: 0;
-  background-color: rgb(17, 17, 17);
-  text-align: center;
-  border-top: 3px solid rgb(104, 98, 98);
-  font-size: 13px;
-  color: rgb(145, 137, 137);
+@media screen and (max-width: 1100px) {
+   
+    .donjon-name {
+        font-size: 17px;
+        text-align: left;
+    }
+
+    nav {
+        padding: 15px;
+        padding-right: 150px;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+
+    .donjon-name {
+        font-size: 25px;
+    }
+
+    nav {
+        padding: 10px;
+    }
 }

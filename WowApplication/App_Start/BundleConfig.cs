@@ -36,6 +36,11 @@ namespace WowApplication
             lootStyleBundle.Include("~/Scss/loot.scss");
             lootStyleBundle.Orderer = nullOrderer;
             bundles.Add(lootStyleBundle);
+
+            var loginStyleBundle = new CustomStyleBundle("~/Bundle/cssLogin");
+            loginStyleBundle.Include("~/Scss/login.scss");
+            loginStyleBundle.Orderer = nullOrderer;
+            bundles.Add(loginStyleBundle);
         }
     }
 }

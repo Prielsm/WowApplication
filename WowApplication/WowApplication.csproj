@@ -137,11 +137,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infra\SessionUtils.cs" />
     <Compile Include="Models\DonjonViewModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\LootViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -180,9 +183,11 @@
     <Content Include="Static\Images\butins.jpg" />
     <Content Include="Static\Images\caveaux_mogushan.jpg" />
     <Content Include="Static\Images\caveaux_mogushan2.png" />
+    <Content Include="Static\Images\chest.png" />
     <Content Include="Static\Images\chien-fantomatique.png" />
     <Content Include="Static\Images\citadelle_couronne_glace.jpg" />
     <Content Include="Static\Images\citadelle_couronne_glace2.png" />
+    <Content Include="Static\Images\connexion.jpg" />
     <Content Include="Static\Images\couronne_de_malheur.jpg" />
     <Content Include="Static\Images\couronne_de_malheur2.jpg" />
     <Content Include="Static\Images\deadmines-small.jpg" />
@@ -229,6 +234,8 @@
     <Content Include="Views\Shared\_LayoutIndex.cshtml" />
     <Content Include="Views\Home\Donjons.cshtml" />
     <Content Include="Views\Home\Loot.cshtml" />
+    <Content Include="Scss\login.scss" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

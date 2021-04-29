@@ -45,6 +45,7 @@
     <Compile Include="EncounterItemEntity.cs" />
     <Compile Include="InstanceEntity.cs" />
     <Compile Include="ItemEntity.cs" />
+    <Compile Include="MembreEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

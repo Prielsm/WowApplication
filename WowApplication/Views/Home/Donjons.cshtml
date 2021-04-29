@@ -7,146 +7,77 @@
 {
     @Styles.Render("~/Bundle/cssDonjons")
 }
+@{ 
+    ViewBag.Title = "Donjons et raids";
+    ViewBag.Image = "../../Static/Images/header_donjons.jpg";
+}
 
 
 
-<div class="body-donjons">
-    <header>
-        <div class="header-img"
-             style="background-image: url(/Static/Images/header_donjons.jpg)"></div>
-        <nav class="flex justify-between">
-            <div class="flex">
-                <button class="flex btn-filter">
-                    <img src="/Static/SVG/filter.svg" alt="" />
-                    <span class="filtrer">Filtrer</span>
-                </button>
-                <div class="filters d-none">
-                    <!-- FILTRE ZONE -->
-                    <div>
-                        <p>Zones</p>
-                        <select id="zone-select">
-                            <option value="allZones">All</option>
-                            <option value="pandarie">Pandarie</option>
-                            <option value="kalimdor">Kalimdor</option>
-                            <option value="royaumeEst">Royaumes de l'Est</option>
-                            <option value="norfendre">Norfendre</option>
-                            <option value="outreterre">Outreterre</option>
-                            <option value="zandalar">Zandalar</option>
-                            <option value="kulTiras">Kul Tiras</option>
-                            <option value="ombreterre">Ombreterre</option>
-                        </select>
-                    </div>
-                    <!-- FILTRE TYPE -->
-                    <div>
-                        <p>Type</p>
-                        <select id="type-select">
-                            <option value="allInst">All</option>
-                            <option value="donjon">Donjon</option>
-                            <option value="raid">Raid</option>
-                            <option value="boss">World Boss</option>
-                        </select>
-                    </div>
-                    <!-- FILTRE BUTINS -->
-                    <div class="butins-select">
-                        <p>Butins</p>
-                        <select id="type-select">
-                            <option value="allButins">All</option>
-                            <option value="monture">Monture</option>
-                            <option value="pet">Pet</option>
-                        </select>
-                        <img class="search-filter" src="/Static/SVG/search_filter.svg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="donjon-name uppercase">Donjons / Raids</div>
-
-            <div class="flex connection">
-                <span class="span-connection">Se connecter</span>
-                <img src="/Static/SVG/connection.svg"
-                     class="icon-connection"
-                     alt="" />
-            </div>
-        </nav>
-    </header>
+<div class="body-donjons">   
 
     <main>
+        <div class="flex section-filter">
+            <button class="flex btn-filter">
+                <img src="~/Static/SVG/filter.svg" alt="" />
+                <span class="filtrer">Filtrer</span>
+            </button>
+            <div class="filters d-none">
+                <!-- FILTRE ZONE -->
+                <div>
+                    <p>Zones</p>
+                    <select id="zone-select">
+                        <option value="touszones">Toutes les zones</option>
+                        <option value="pandarie">Pandarie</option>
+                        <option value="kalimdor">Kalimdor</option>
+                        <option value="royaumeEst">Royaumes de l'Est</option>
+                        <option value="norfendre">Norfendre</option>
+                        <option value="outreterre">Outreterre</option>
+                        <option value="zandalar">Zandalar</option>
+                        <option value="kulTiras">Kul Tiras</option>
+                        <option value="ombreterre">Ombreterre</option>
+                    </select>
+                </div>
+                <!-- FILTRE TYPE -->
+                <div>
+                    <p>Type</p>
+                    <select id="type-select">
+                        <option value="toustypes">Tous les types</option>
+                        <option value="donjon">Donjon</option>
+                        <option value="raid">Raid</option>
+                    </select>
+                </div>
+                <!-- FILTRE BUTINS -->
+                <div class="butins-select">
+                    <p>Butins</p>
+                    <select id="type-select">
+                        <option value="tousbutins">Tous les butins</option>
+                        <option value="monture">Monture</option>
+                        <option value="pet">Pet</option>
+                    </select>
+                    <img class="search-filter" src="~/Static/SVG/search_filter.svg" alt="">
+                </div>
+            </div>
+        </div>
         <button class="refresh"><i class="fas fa-sync-alt"></i></button>
         <div class="flex flex-wrap justify-around">
             @foreach (WowApplication.Models.InstanceModel item in Model.InstanceModels)
-            { 
-                <div id="@item.Id" class="donjon lg:w-1/6 md:w-1/4 w-1/2"
-                     style="background-image: url(@item.Media);" >
-                    <a href="/Home/Loot/@item.Id">  </a>
-                    <div class="modal-donjon">
-                        <p class="type-inst">@item.Type</p>
-                        <p>@item.Name</p>
-                    </div>
+            {
+                <a href="/Home/Loot/@item.Id">
 
-                </div>
+                    <div id="@item.Id" class="donjon lg:w-1/6 md:w-1/4 w-1/2"
+                         style="background-image: url(@item.Media);">
+                        <div class="modal-donjon">
+                            <p class="type-inst">@item.Type</p>
+                            <p>@item.Name</p>
+                        </div>
+
+                    </div>
+                </a>
             }
 
-
-
-
-                @*<div id="2"
-                     class="donjon lg:w-1/6 md:w-1/4 w-1/2"
-                     style="background-image: url(/Static/Images/throne-of-the-tides-small.jpg)">
-                    <a href="/Home/Loot"></a>
-                    <div class="modal-donjon">
-                        <p class="type-inst">DONJON</p>
-                        <p>Descente de l'aile noire</p>
-                    </div>
-                </div>
-                <div id="3"
-                     class="donjon lg:w-1/6 md:w-1/4 w-1/2"
-                     style="background-image: url(/Static/Images/caveaux_mogushan.jpg)">
-                    <a href="/Home/Loot"></a>
-                    <div class="modal-donjon">
-                        <p class="type-inst">DONJON</p>
-                        <p>Caveaux de Mogushan</p>
-                    </div>
-                </div>
-                <div id="4"
-                     class="donjon lg:w-1/6 md:w-1/4 w-1/2"
-                     style="background-image: url(/Static/Images/bastion_crepuscule.jpg)">
-                    <div class="modal-donjon">
-                        <p class="type-inst">DONJON</p>
-                        <p>Bastion du crépuscule</p>
-                    </div>
-                </div>
-                <div id="5"
-                     class="donjon lg:w-1/6 md:w-1/4 w-1/2"
-                     style="background-image: url(/Static/Images/karazhan2.png)">
-                    <div class="modal-donjon">
-                        <p class="type-inst">DONJON</p>
-                        <p>Karazhan</p>
-                    </div>
-                </div>
-                <div id="6"
-                     class="donjon lg:w-1/6 md:w-1/4 w-1/2"
-                     style="background-image: url(/Static/Images/accueil.jpg)">
-                    <div class="modal-donjon">
-                        <p class="type-inst">WORLD BOSS</p>
-                        <p>Pandarie</p>
-                    </div>
-                </div>
-                <div id="7"
-                     class="donjon lg:w-1/6 md:w-1/4 w-1/2"
-                     style="background-image: url(/Static/Images/accueil.jpg)">
-                    <div class="modal-donjon">La couronne de glace</div>
-                </div>
-                <div id="8"
-                     class="donjon lg:w-1/6 md:w-1/4 w-1/2"
-                     style="background-image: url(/Static/Images/accueil.jpg)">
-                    <div class="modal-donjon">La couronne de glace</div>
-                </div>*@
-            </div>
+        </div>
     </main>
-
-    <footer>
-        <a href="/Home/Index" class="retour-accueil">> Retour à l'accueil &#60;</a>
-    </footer>
 
 
 </div>

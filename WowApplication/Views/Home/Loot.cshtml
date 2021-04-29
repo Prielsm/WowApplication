@@ -19,30 +19,22 @@
     </script>
     <script src="https://wow.zamimg.com/widgets/power.js"></script>
 }
+@{ 
+    ViewBag.Title = Model.InstanceModel.Name;
+    ViewBag.Image = Model.InstanceModel.Media;
+}
 
 <div class="body-loot">
-    <header>
-        <div class="header-img"
-             style="background-image: url(@Model.InstanceModel.Media)"></div>
-        <nav class="flex justify-between">
+    <main class="flex">
+        <!-- MENU GAUCHE -->
+        <section class="menu-left">
             <div class="flex">
                 <select id="type-select">
                     <option value="boss">Trier par : Boss</option>
                     <option value="butin">Trier par : Butin</option>
                 </select>
             </div>
-            <div class="donjon-name uppercase">@Model.InstanceModel.Name</div>
-            <div class="flex connection">
-                <span class="span-connection">Se connecter</span>
-                <img src="/Static/SVG/connection.svg"
-                     class="icon-connection"
-                     alt="" />
-            </div>
-        </nav>
-    </header>
-    <main class="flex">
-        <!-- MENU GAUCHE -->
-        <section class="menu-left"></section>
+        </section>
         <!-- CONTAINER MIDDLE -->
         <section class="container-middle" style="background-image: url(/Static/Images/citadelle_couronne_glace2.png)">
             <!-- description -->
@@ -86,80 +78,73 @@
 
             @foreach (WowApplication.Models.EncounterModel item in Model.EncounterModels)
             {
-                //foreach (WowApplication.Models.ItemModel itemModel in Model.ItemModels)
-                //{
+                @:<h2 class="boss-name">@item.Name</h2>
+                @:<div class="flex flex-wrap sect-items">
+                    foreach (WowApplication.Models.ItemModel itemModel in Model.ItemModels)
+                    {
+                        if (itemModel.IdEncounter == item.Id)
+                        {
+                            if (itemModel.Type == "monture")
+                            {
+                                <div>C'est une monture</div>
+                            }
+                            else if (itemModel.Type == "pet")
+                            {
+                                <div>C'est un pet</div>
+                            }
+                            else
+                            {
+                                <div class="flex sect-item">
+                                    <img class="icon-item" src="@itemModel.Icon" />
+                                    <div>
+                                        <a href="https://fr.wowhead.com/item=@itemModel.Id"
+                                           data-wowhead="item=@itemModel.Id"
+                                           class="infos-item">@itemModel.Name</a>
+                                        <button>+ Ajouter</button><button><i class="far fa-images"></i> Photos</button>
+                                    </div>
+                                    
 
-                //}
-                <h2 class="boss-name">@item.Name</h2>
-                <div class="flex flex-wrap">
-                    <div class="mount" style="background-image: url(/Static/Images/serpent-nuage-astral.png);">
-                        <h3>Serpent nuage astral</h3>
-                        <div class="modal-loot d-none"><img class="checked" src="/Static/SVG/checked.svg" /></div>
+                                </div>
+                            }
 
-                    </div>
-                    <div class="mount" style="background-image: url(/Static/Images/serpent-nuage-astral.png);">
-                        <h3>Serpent nuage astral</h3>
-                        <div class="modal-loot d-none"><img class="checked" src="/Static/SVG/checked.svg" /></div>
-                    </div>
-                </div>
-                <div class="flex flex-wrap">
-                    <div class="pet" style="background-image: url(/Static/Images/phenix-royal.png);">
-                        <h3>Phénix royal</h3>
-                        <div class="modal-loot d-none"><img class="checked" src="/Static/SVG/checked.svg" /></div>
-                    </div>
-                    <div class="pet" style="background-image: url(/Static/Images/jeune-sabre-fantomatique.png);">
-                        <h3>Jeune sabre fantomatique</h3>
-                        <div class="modal-loot d-none"><img class="checked" src="/Static/SVG/checked.svg" /></div>
-                    </div>
-                    <div class="pet" style="background-image: url(/Static/Images/chien-fantomatique.png);">
-                        <h3>Chien fantomatique</h3>
-                        <div class="modal-loot d-none"><img class="checked" src="/Static/SVG/checked.svg" /></div>
-                    </div>
-                </div>
-                <div class="flex flex-wrap sect-items">
-                    <div class="flex sect-item">
-                        <img class="icon-item" src="/Static/Images/icon_bow.jpg" />
-                        <a href="https://fr.wowhead.com/item=27526"
-                           data-wowhead="item=27526"
-                           class="infos-item">Arc Faucon Arc Faucon Arc FauconArc Faucon</a>
-                    </div>
-                    <div class="flex sect-item">
-                        <img class="icon-item" src="/Static/Images/icon_bow.jpg" />
-                        <a href="https://fr.wowhead.com/item=27526/arc-faucon-br%C3%BBleciel?bonus=6710"
-                           data-wowhead="item=27526"
-                           class="infos-item">Arc Faucon</a>
-                    </div>
-                    <div class="flex sect-item">
-                        <img class="icon-item" src="/Static/Images/icon_bow.jpg" />
-                        <a href="https://fr.wowhead.com/item=27526/arc-faucon-br%C3%BBleciel?bonus=6710"
-                           data-wowhead="item=27526"
-                           class="infos-item">Arc Faucon</a>
-                    </div>
-                    <div class="flex sect-item flex-wrap">
-                        <img class="icon-item" src="/Static/Images/icon_bow.jpg" />
-                        <a href="https://fr.wowhead.com/item=27526/arc-faucon-br%C3%BBleciel?bonus=6710"
-                           data-wowhead="item=27526"
-                           class="infos-item">Arc Faucon</a>
-                    </div>
-                    <div class="flex sect-item">
-                        <img class="icon-item" src="/Static/Images/icon_bow.jpg" />
-                        <a href="https://fr.wowhead.com/item=27526/arc-faucon-br%C3%BBleciel?bonus=6710"
-                           data-wowhead="item=27526"
-                           class="infos-item">Arc Faucon</a>
-                    </div>
+
+                        }
+
+                    }
+                @:</div>
+                @*<div class="flex flex-wrap">
+                <div class="mount" style="background-image: url(/Static/Images/serpent-nuage-astral.png);">
+                    <h3>Serpent nuage astral</h3>
+                    <div class="modal-loot d-none"><img class="checked" src="/Static/SVG/checked.svg" /></div>
 
                 </div>
+                <div class="mount" style="background-image: url(/Static/Images/serpent-nuage-astral.png);">
+                    <h3>Serpent nuage astral</h3>
+                    <div class="modal-loot d-none"><img class="checked" src="/Static/SVG/checked.svg" /></div>
+                </div>
+            </div>
+            <div class="flex flex-wrap">
+                <div class="pet" style="background-image: url(/Static/Images/phenix-royal.png);">
+                    <h3>Phénix royal</h3>
+                    <div class="modal-loot d-none"><img class="checked" src="/Static/SVG/checked.svg" /></div>
+                </div>
+                <div class="pet" style="background-image: url(/Static/Images/jeune-sabre-fantomatique.png);">
+                    <h3>Jeune sabre fantomatique</h3>
+                    <div class="modal-loot d-none"><img class="checked" src="/Static/SVG/checked.svg" /></div>
+                </div>
+                <div class="pet" style="background-image: url(/Static/Images/chien-fantomatique.png);">
+                    <h3>Chien fantomatique</h3>
+                    <div class="modal-loot d-none"><img class="checked" src="/Static/SVG/checked.svg" /></div>
+                </div>
+            </div>
+            *@
             }
-
 
         </section>
         <!-- MENU DROITE -->
         <section class="menu-right"></section>
     </main>
 
-    <footer>
-        <a href="/Home/Donjons" class="retour-donjons">> Retour à la page des donjons &#60;</a>
-    </footer>
 
 
 </div>

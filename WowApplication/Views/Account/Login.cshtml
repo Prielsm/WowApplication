@@ -1,0 +1,79 @@
+﻿@model WowApplication.Models.LoginViewModel
+@{
+    ViewBag.Title = "Connexion";
+    ViewBag.Image = "../../Static/Images/connexion.jpg";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section MoreCss
+{
+    @Styles.Render("~/Scss/login.scss")
+}
+
+<div class="body-login">
+    <main>
+        <div class="sect-connection">
+            <section class="login">
+                <h2>S'identifier</h2>
+                <p class="dark-p">Bon retour parmi nous.</p>
+                <form action="/Account/Login" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="group-input">
+                        <label>Email</label>
+                        @Html.ValidationMessageFor(model => Model.LoginModel.Email, "", new { @class = "text-danger" })
+                    <input type="email" name="Email" required>
+                    </div>
+                    <div class="group-input">
+                        <label>Mot de passe</label>
+                        @Html.ValidationMessageFor(model => Model.LoginModel.Password, "", new { @class = "text-danger" })
+                        <input type="password" name="Password" required>
+                    </div>
+                    <div class="checkbox remember">
+                        <label>
+                            <input type="checkbox"> Se souvenir de moi
+                        </label>
+                    </div>
+                    <input type="submit" name="btn" value="Connectez-vous" class="btn">
+                </form>
+            </section>
+            <section class="register">
+                <h2>Créer un compte</h2>
+                <p class="dark-p">Bienvenue à toi jeune geek.</p>
+                <form action="/Account/Register" method="post">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="group-input">
+                        <label>Nom</label>
+                        @Html.ValidationMessageFor(model => Model.MembreModel.Name, "", new { @class = "text-danger" })
+                        <input type="text" name="Name" required>
+                    </div>
+                    <div class="group-input">
+                        <label>Prénom</label>
+                        @Html.ValidationMessageFor(model => Model.MembreModel.FirstName, "", new { @class = "text-danger" })
+                        <input type="text" name="FirstName" required>
+                    </div>
+                    <div class="group-input">
+                        <label>Email</label>
+                        @Html.ValidationMessageFor(model => Model.MembreModel.Email, "", new { @class = "text-danger" })
+                        <input type="email" name="Email" required>
+                    </div>
+                    <div class="group-input">
+                        <label>Mot de passe</label>
+                        @Html.ValidationMessageFor(model => Model.MembreModel.Password, "", new { @class = "text-danger" })
+                        <input type="password" name="Password" required>
+                    </div>
+                    <div class="group-input">
+                        <label>Confirmation mdp</label>
+                        @Html.ValidationMessageFor(model => Model.MembreModel.ConfirmPassword, "", new { @class = "text-danger" })
+                        <input type="password" name="ConfirmPassword" required>
+                    </div>
+                    <input type="submit" name="btn" value="Enregistrez-vous" class="btn">
+                </form>
+            </section>
+        </div>
+    </main>
+</div>
+
+

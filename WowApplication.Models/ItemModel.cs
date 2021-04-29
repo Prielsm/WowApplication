@@ -8,7 +8,7 @@ namespace WowApplication.Models
 {
     public class ItemModel
     {
-        private int _id;
+        private int _id, _idEncounter;
         private string _name, _type, _subType, _creatureName, _icon, _media;
         private bool _isObtained;
 
@@ -117,5 +117,17 @@ namespace WowApplication.Models
             }
         }
 
+        public int IdEncounter
+        {
+            get
+            {
+                return _idEncounter;
+            }
+
+            set
+            {
+                _idEncounter = value;
+            }
+        }
     }
 }

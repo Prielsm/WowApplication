@@ -11,34 +11,45 @@
     <link rel="icon" type="image/png" href="~/Static/Images/icon-wow.png">
     <title>Wow Application</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
-
-
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href="https://unpkg.com/tailwindcss%40%5E2/dist/tailwind.min.css" rel="stylesheet">
 
 </head>
 <body>
+    <header>
+        <div class="header-img"
+             style="background-image: url(@ViewBag.Image)"></div>
+        <nav>
+            <div class="donjon-name uppercase">@ViewBag.Title</div>
+            <button class="flex collection">
+                <span class="span-collection">Collection</span>
+                <img src="../../Static/Images/chest.png"
+                     class="icon-collection"
+                     alt="" />
+            </button>
+            
+            @if (WowApplication.Infra.SessionUtils.IsLogged)
+            {
+                @:<a href="/Account/Logout">
+                    <button class="flex connection" title="Se déconnecter"><i class="fas fa-sign-out-alt"></i></button>
+                @:</a>
+            }
+            else
+            {
+                @:<a href="/Account/Login">
+                    <button class="flex connection" title="Se connecter"><i class="fas fa-sign-in-alt"></i></button>
+                @:</a>
+            }
+
+
+        </nav>
+    </header>
     @RenderBody()
-    <!-- MODAL CONNECTION -->
-    <section class="modal d-none">
-        <div class="inter-modal">
-            <h2>Welcome back!</h2>
-            <p class="dark-p">Sign in to your account</p>
-            <p class="flex email">
-                <span>Email</span>
-                <input type="text" />
-            </p>
-            <p class="flex password">
-                <span>Password</span>
-                <input type="text" />
-            </p>
-            <button>Continue</button>
-            <p>
-                <span class="dark-p">Don't have an account ? </span><span>Sign up</span>
-            </p>
-            <img class="close" src="/Static/SVG/close.svg" alt="" />
-        </div>
-    </section>
+
+    <footer>
+        <a href="/Home/Index">Home</a> | <a href="/Home/Donjons">Donjons</a>
+    </footer>
+
 
     @Scripts.Render("~/bundles/script")
     @RenderSection("Wowhead", false)

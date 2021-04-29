@@ -1,0 +1,67 @@
+.body-login {  
+    .sect-connection {
+      background-color: rgb(17, 17, 17);
+      border: 1px solid rgb(46, 45, 45);
+      width: 98%;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content:space-around;
+      .login, .register {
+        width: 500px;
+        margin: 30px 0 60px 0;
+        h2 {
+          font-size: 25px;
+          font-weight: 500;
+        }
+        .dark-p {
+          color: rgb(60, 58, 58);
+          margin-bottom: 30px;
+        }    
+        .remember {
+          margin-bottom: 20px;
+        }  
+        
+        form {
+          .group-input {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 90%;
+            margin: 20px 0;
+            background-color: rgb(44, 44, 44);
+            border: 1px solid rgb(112, 112, 112);
+            padding: 5px;
+            border-radius: 5px;
+            align-items: center;
+            label {
+              color: rgb(125, 124, 124);
+              margin-right: 10px;
+            }
+            input {
+              background-color: rgb(29, 28, 28);
+              width: 250px;
+              margin-right: 5px;
+            }
+          }
+          .btn {
+            background-color: rgb(153, 153, 153);
+            border: 1px solid rgb(153, 153, 153);
+            padding: 7px 30px;
+            border-radius: 5px;
+            color: rgb(31, 30, 30);
+            font-weight: 400;
+            margin-bottom: 30px;
+            &:hover {
+              border: 1px solid rgb(153, 153, 153);
+              background-color: rgb(17, 17, 17);
+              color: white;
+            }
+          }
+        }
+      }
+      
+     
+    }
+  }

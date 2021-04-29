@@ -198,11 +198,6 @@ namespace WowApplication.Controllers
 
             #endregion
 
-
-
-
-
-
             return View();
         }
 
@@ -213,10 +208,20 @@ namespace WowApplication.Controllers
             return View(dm);
         }
 
-        public ActionResult Loot(int id)
+        public ActionResult Loot(int? id)
         {
-            LootViewModel lm = new LootViewModel(id);
-            return View(lm);
+            if (id!=null)
+            {
+                int id2 = Convert.ToInt32(id);
+                LootViewModel lm = new LootViewModel(id2);
+                return View(lm);
+            }
+            else
+            {
+                return RedirectToAction("Donjons", "Home");
+            }
+            
         }
+
     }
 }

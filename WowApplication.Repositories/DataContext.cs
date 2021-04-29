@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WowApplication.DAL.Repositories;
 using WowApplication.Entities;
+using Tools;
 using WowApplication.Models;
 
 namespace WowApplication.Repositories
@@ -15,6 +16,7 @@ namespace WowApplication.Repositories
         IConcreteRepository<EncounterEntity> _encounterRepo;
         IConcreteRepository<EncounterItemEntity> _encounterItemRepo;
         IConcreteRepository<ItemEntity> _itemRepo;
+        IConcreteRepository<MembreEntity> _membreRepo;
 
         public DataContext(string connectionString)
         {
@@ -22,6 +24,7 @@ namespace WowApplication.Repositories
             _encounterRepo = new EncounterRepository(connectionString);
             _encounterItemRepo = new EncounterItemRepository(connectionString);
             _itemRepo = new ItemRepository(connectionString);
+            _membreRepo = new MembreRepository(connectionString);
         }
 
         #region Mapping de l'insertion de toutes les instances 
@@ -178,6 +181,8 @@ namespace WowApplication.Repositories
                 EncounterModel em = new EncounterModel();
                 em.Id = ee.Id;
                 em.Name = ee.Name;
+                em.IdInstance = ee.IdInstance;
+                em.Media = ee.Media;
                 ems.Add(em);
             }
 
@@ -200,7 +205,7 @@ namespace WowApplication.Repositories
                 im.Icon = ie.Icon;
                 im.Media = ie.Media;
                 im.IsObtained = ie.IsObtained;
-
+                im.IdEncounter = id;
                 ims.Add(im);
 
             }
@@ -208,6 +213,43 @@ namespace WowApplication.Repositories
 
             return ims;
         }
+        #region CreateMembre
+        public bool CreateMembre(MembreModel um)
+        {
+            MembreEntity membreEntity = new MembreEntity()
+            {
+                Name = um.Name,
+                FirstName = um.FirstName,
+                Email = um.Email,
+                Password = um.Password
+            };
+
+            return _membreRepo.Insert(membreEntity);
+        }
+        #endregion
+
+        #region UserAuth
+        public MembreModel UserAuth(LoginModel lm)
+        {
+            MembreEntity ue = ((MembreRepository)_membreRepo).GetFromEmail(lm.Email);
+            if (ue == null) return null;
+            SecurityHelper sh = new SecurityHelper();
+            if (sh.VerifyHash(lm.Password, ue.Password, ue.Salt))
+            {
+                return new MembreModel()
+                {
+                    IdMembre = ue.IdMembre,
+                    Name = ue.Name,
+                    FirstName = ue.FirstName,
+                    Email = ue.Email,
+                };
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
 
     }
 }
