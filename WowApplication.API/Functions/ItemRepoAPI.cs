@@ -10,6 +10,7 @@ using WowApplication.API.Models.CreatureModelsAPI;
 using WowApplication.API.Models.ItemModelsAPI;
 using WowApplication.API.Models.MountModelsAPI;
 using WowApplication.API.Models.SharedModelsAPI;
+using WowApplication.API.Shared;
 
 namespace WowApplication.API.Functions
 {
@@ -37,9 +38,7 @@ namespace WowApplication.API.Functions
 
             var request = AuthentificationRepoAPI.CreateHttpRequest(HttpMethod.Get, uriBuilder.Uri);
 
-            var response = httpClient.SendAsync(request).Result;
-
-            var content = await response.Content.ReadAsStringAsync();
+            var content = await httpClient.Retry(request);
 
             if (content != null)
             {

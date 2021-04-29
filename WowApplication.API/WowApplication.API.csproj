@@ -96,6 +96,7 @@
     <Compile Include="Models\SharedModelsAPI\RootMedia.cs" />
     <Compile Include="Models\SharedModelsAPI\Self.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\ExtensionHttpClient.cs" />
     <Compile Include="UnitOfWorkAPI.cs" />
   </ItemGroup>
   <ItemGroup>
